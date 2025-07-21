@@ -33,7 +33,7 @@ export default function NotFound() {
             </CardHeader>
             <CardContent className="space-y-4">
               <Link href="/">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button className="w-full bg-red-700 hover:bg-red-800">
                   <Home className="w-4 h-4 mr-2" />
                   Go to Homepage
                 </Button>

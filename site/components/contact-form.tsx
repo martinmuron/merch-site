@@ -72,7 +72,7 @@ export function ContactForm() {
             </p>
           <Button 
             onClick={() => setIsSuccess(false)}
-            className="bg-blue-600 hover:bg-blue-700"
+            className="bg-red-700 hover:bg-red-800"
           >
             Request Another Quote
           </Button>
@@ -85,7 +85,7 @@ export function ContactForm() {
     <Card className="border-0 shadow-lg">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Building2 className="w-5 h-5 text-blue-600" />
+          <Building2 className="w-5 h-5 text-red-600" />
           Request Custom Quote
         </CardTitle>
                   <CardDescription>
@@ -249,7 +249,7 @@ export function ContactForm() {
           
           <Button 
             type="submit" 
-            className="w-full bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-200"
+            className="w-full bg-red-700 hover:bg-red-800 transform hover:scale-105 transition-all duration-200"
             disabled={isSubmitting}
           >
             {isSubmitting ? (

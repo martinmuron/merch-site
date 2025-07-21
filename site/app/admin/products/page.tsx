@@ -179,7 +179,7 @@ export default function AdminProductsPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-8 h-8 border-4 border-red-700 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>
         </div>
       </div>
@@ -199,7 +199,7 @@ export default function AdminProductsPage() {
           </div>
           <Button 
             onClick={() => router.push("/admin/products/new")}
-            className="bg-blue-600 hover:bg-blue-700"
+            className="bg-red-700 hover:bg-red-800"
           >
             <Plus className="w-4 h-4 mr-2" />
             Add Product
@@ -276,7 +276,7 @@ export default function AdminProductsPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1"
+                    className="flex-1 bg-red-700 hover:bg-red-800"
                     onClick={() => router.push(`/admin/products/${product.id}/edit`)}
                   >
                     <Edit className="w-4 h-4 mr-1" />
@@ -312,7 +312,7 @@ export default function AdminProductsPage() {
             <p className="text-gray-600 mb-4">Get started by adding your first product</p>
             <Button 
               onClick={() => router.push("/admin/products/new")}
-              className="bg-blue-600 hover:bg-blue-700"
+              className="bg-red-700 hover:bg-red-800"
             >
               Add Your First Product
             </Button>

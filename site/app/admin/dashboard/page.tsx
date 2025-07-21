@@ -21,7 +21,7 @@ export default function AdminDashboardPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-8 h-8 border-4 border-red-700 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>
         </div>
       </div>
@@ -39,7 +39,7 @@ export default function AdminDashboardPage() {
       description: "Add, edit, or remove products from your catalog",
       icon: Package,
       href: "/admin/products",
-      color: "bg-blue-500"
+      color: "bg-red-500"
     },
     {
       title: "View Inquiries",
@@ -148,7 +148,7 @@ export default function AdminDashboardPage() {
             <CardContent>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                   <div className="flex-1">
                     <p className="text-sm font-medium">New product added: Custom Hoodies</p>
                     <p className="text-xs text-gray-500">2 hours ago</p>

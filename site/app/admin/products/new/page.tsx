@@ -15,7 +15,8 @@ import {
   Upload, 
   X,
   Save,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Plus
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -39,7 +40,7 @@ export default function NewProductPage() {
   if (status === "loading") {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-4 border-red-700 border-t-transparent rounded-full animate-spin"></div>
       </div>
     )
   }
@@ -115,7 +116,7 @@ export default function NewProductPage() {
                   Back to Products
                 </Button>
               </Link>
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-red-700 rounded-lg flex items-center justify-center">
                 <Package className="w-5 h-5 text-white" />
               </div>
               <h1 className="text-xl font-semibold text-gray-900">Add New Product</h1>
@@ -224,7 +225,7 @@ export default function NewProductPage() {
                   type="button"
                   variant="outline"
                   onClick={() => fileInputRef.current?.click()}
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                  className="bg-red-700 hover:bg-red-800 text-white"
                 >
                   <Upload className="w-4 h-4 mr-2" />
                   Choose Files
@@ -266,7 +267,7 @@ export default function NewProductPage() {
                           <X className="w-4 h-4" />
                         </button>
                         {index === 0 && (
-                          <div className="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                          <div className="absolute bottom-2 left-2 bg-red-700 text-white text-xs px-2 py-1 rounded">
                             Main
                           </div>
                         )}
@@ -325,7 +326,7 @@ export default function NewProductPage() {
             </Link>
             <Button 
               type="submit" 
-              className="bg-blue-600 hover:bg-blue-700"
+              className="bg-red-700 hover:bg-red-800 text-white"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

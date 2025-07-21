@@ -161,7 +161,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-8 h-8 border-4 border-red-700 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600">Loading product...</p>
         </div>
       </div>
@@ -364,8 +364,8 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
             </Button>
             <Button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700"
               disabled={isSaving}
+              className="bg-red-700 hover:bg-red-800"
             >
               {isSaving ? (
                 <>

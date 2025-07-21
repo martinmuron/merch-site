@@ -52,75 +52,66 @@ export default function AdminLoginPage() {
       <Navbar />
       
       <div className="flex items-center justify-center min-h-[calc(100vh-64px)] p-4">
-        <Card className="w-full max-w-md border-0 shadow-xl">
-          <CardHeader className="text-center">
-            <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+        <div className="w-full max-w-md space-y-8">
+          <div>
+            <div className="w-12 h-12 bg-red-700 rounded-lg flex items-center justify-center mx-auto mb-4">
               <Lock className="w-6 h-6 text-white" />
             </div>
-            <CardTitle className="text-2xl">Admin Login</CardTitle>
-            <CardDescription>
-              Access your merchandise management dashboard
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="admin@merchsite.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10"
-                    required
-                  />
-                </div>
+            <h2 className="text-center text-3xl font-bold text-gray-900">
+              Admin Login
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Access the admin dashboard
+            </p>
+          </div>
+          
+          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="email">Email Address</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="admin@merchsite.com"
+                  required
+                  className="mt-1"
+                />
               </div>
               
-              <div className="space-y-2">
+              <div>
                 <Label htmlFor="password">Password</Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10"
-                    required
-                  />
-                </div>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  required
+                  className="mt-1"
+                />
               </div>
-
-              <Button 
-                type="submit" 
-                className="w-full bg-blue-600 hover:bg-blue-700"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                    Signing in...
-                  </>
-                ) : (
-                  "Sign In"
-                )}
-              </Button>
-            </form>
-
-            <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-              <h4 className="font-semibold text-blue-900 mb-2">Demo Credentials:</h4>
-              <p className="text-sm text-blue-700">
-                Email: <strong>admin@merchsite.com</strong><br />
-                Password: <strong>123456</strong>
-              </p>
             </div>
-          </CardContent>
-        </Card>
+
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-red-700 hover:bg-red-800"
+            >
+              {isLoading ? (
+                <div className="flex items-center">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                  Signing in...
+                </div>
+              ) : (
+                "Sign In"
+              )}
+            </Button>
+          </form>
+
+          {/* The error div was removed from the new_code, so it's removed here. */}
+        </div>
       </div>
     </div>
   )

@@ -47,17 +47,17 @@ export default function AdminSetupPage() {
         <CardContent className="space-y-6">
           {!isComplete ? (
             <>
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-2">Admin Credentials:</h4>
-                <p className="text-sm text-blue-700">
-                  Email: <strong>admin@merchsite.com</strong><br />
-                  Password: <strong>123456</strong>
+              <div className="bg-red-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-red-900 mb-2">Admin Credentials:</h4>
+                <p className="text-sm text-red-700">
+                  Email: admin@merchsite.com<br />
+                  Password: 123456
                 </p>
               </div>
               
               <Button 
                 onClick={setupAdmin}
-                className="w-full bg-blue-600 hover:bg-blue-700"
+                className="w-full bg-red-700 hover:bg-red-800"
                 disabled={isSettingUp}
               >
                 {isSettingUp ? (
@@ -83,7 +83,7 @@ export default function AdminSetupPage() {
               </p>
               <Button 
                 onClick={() => window.location.href = '/admin/login'}
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-red-700 hover:bg-red-800"
               >
                 Go to Admin Login
               </Button>

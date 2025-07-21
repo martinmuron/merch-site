@@ -42,15 +42,15 @@ export class ErrorBoundary extends Component<Props, State> {
               We&apos;re sorry, but something unexpected happened. Please try refreshing the page.
             </p>
             <div className="space-y-3">
-              <Button 
-                onClick={() => window.location.reload()} 
-                className="w-full bg-blue-600 hover:bg-blue-700"
+              <Button
+                onClick={() => window.location.reload()}
+                className="w-full bg-red-700 hover:bg-red-800"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh Page
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => window.location.href = "/"}
                 className="w-full"
               >

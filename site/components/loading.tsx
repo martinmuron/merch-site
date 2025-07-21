@@ -14,7 +14,7 @@ export function Loading({ size = "md", text = "Loading..." }: LoadingProps) {
 
   return (
     <div className="flex flex-col items-center justify-center p-8">
-      <Loader2 className={`${sizeClasses[size]} animate-spin text-blue-600 mb-4`} />
+      <Loader2 className={`${sizeClasses[size]} animate-spin text-red-700 mb-4`} />
       <p className="text-gray-600 text-sm">{text}</p>
     </div>
   )
@@ -28,6 +28,6 @@ export function LoadingSpinner({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   }
 
   return (
-    <Loader2 className={`${sizeClasses[size]} animate-spin text-blue-600`} />
+    <Loader2 className={`${sizeClasses[size]} animate-spin text-red-700`} />
   )
 } 

@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 export default function ProductsPage() {
   const businessProducts = [
@@ -162,6 +163,9 @@ export default function ProductsPage() {
                 <SelectItem value="popular">Most Popular</SelectItem>
               </SelectContent>
             </Select>
+            <Button size="sm" className="bg-red-700 hover:bg-red-800">
+              Clear Filters
+            </Button>
           </div>
         </div>
 
@@ -178,24 +182,23 @@ export default function ProductsPage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <CardHeader className="pb-2">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg">{product.name}</CardTitle>
-                  <span className="text-sm text-blue-600 font-medium">{product.category}</span>
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-red-700 font-medium">{product.category}</span>
+                  <span className="text-lg font-semibold text-red-700">
+                    ${product.price}
+                  </span>
                 </div>
+                <CardTitle className="text-lg">{product.name}</CardTitle>
                 <CardDescription className="text-gray-600">
                   {product.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-lg font-semibold text-blue-600">
-                    {product.price}
-                  </span>
-                </div>
+              <CardContent className="pt-0">
                 <Link href={`/products/${product.id}`}>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-200">
-                    Get Quote
+                  <Button className="w-full bg-red-700 hover:bg-red-800 transform hover:scale-105 transition-all duration-200">
+                    View Details
+                    <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
               </CardContent>
@@ -209,7 +212,7 @@ export default function ProductsPage() {
             <Button variant="outline" size="sm" className="hidden sm:block">
               Previous
             </Button>
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+            <Button size="sm" className="bg-red-700 hover:bg-red-800">
               1
             </Button>
             <Button variant="outline" size="sm">

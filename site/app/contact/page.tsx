@@ -15,124 +15,124 @@ export default function ContactPage() {
             Get Your Custom Quote
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-            Ready to brand your business? Get a custom quote for your merchandise needs. 
-            Perfect for restaurants, offices, and promotional campaigns.
+            Ready to create branded merchandise for your business? Let&apos;s discuss your project.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-          {/* Contact Form */}
-          <ContactForm />
-
           {/* Contact Information */}
-          <div className="space-y-6 sm:space-y-8">
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-blue-600" />
-                  Business Inquiries
-                </CardTitle>
-                <CardDescription>
-                  Get in touch for custom quotes and bulk pricing.
-                </CardDescription>
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Business Inquiries</h2>
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-red-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Email</h3>
+                  <p className="text-gray-600">sales@merchsite.com</p>
+                  <p className="text-sm text-gray-500">For quotes and business inquiries</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-red-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Phone</h3>
+                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-sm text-gray-500">Mon-Fri 9AM-6PM EST</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-red-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Location</h3>
+                  <p className="text-gray-600">123 Business Ave, Suite 100</p>
+                  <p className="text-gray-600">New York, NY 10001</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-red-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Business Hours</h3>
+                  <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                  <p className="text-sm text-gray-500">Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Us?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We specialize in creating high-quality branded merchandise for businesses of all sizes.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="border-0 shadow-lg bg-red-50">
+              <CardHeader className="text-center pb-3">
+                <CardTitle className="text-red-900">Quality Materials</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">sales@merchsite.com</p>
-                    <p className="text-sm text-gray-500">Custom quotes within 2 hours</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-sm text-gray-500">Mon-Fri 8AM-6PM EST</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Office</h3>
-                    <p className="text-gray-600">
-                      123 Business District<br />
-                      Commerce City, CC 12345<br />
-                      United States
-                    </p>
-                  </div>
-                </div>
+              <CardContent className="text-center pt-0">
+                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-gray-600 mt-2">Premium fabrics and materials for lasting quality</p>
               </CardContent>
             </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-blue-600" />
-                  Business Hours
-                </CardTitle>
+            
+            <Card className="border-0 shadow-lg bg-red-50">
+              <CardHeader className="text-center pb-3">
+                <CardTitle className="text-red-900">Fast Turnaround</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Monday - Friday</span>
-                    <span className="font-medium">8:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Saturday</span>
-                    <span className="font-medium">9:00 AM - 3:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Sunday</span>
-                    <span className="font-medium">Closed</span>
-                  </div>
-                  <div className="pt-3 border-t">
-                    <p className="text-sm text-gray-500">
-                      Emergency orders available outside business hours
-                    </p>
-                  </div>
-                </div>
+              <CardContent className="text-center pt-0">
+                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-gray-600 mt-2">Quick production and delivery for urgent orders</p>
               </CardContent>
             </Card>
-
-            <Card className="border-0 shadow-lg bg-blue-50">
-              <CardHeader>
-                <CardTitle className="text-blue-900">Why Choose Us?</CardTitle>
+            
+            <Card className="border-0 shadow-lg bg-red-50">
+              <CardHeader className="text-center pb-3">
+                <CardTitle className="text-red-900">Bulk Pricing</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700">Fast turnaround times (3-5 business days)</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700">Bulk pricing for large orders</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700">Free design consultation</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700">Quality guarantee on all products</span>
-                  </div>
-                </div>
+              <CardContent className="text-center pt-0">
+                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-gray-600 mt-2">Competitive rates for large quantity orders</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-0 shadow-lg bg-red-50">
+              <CardHeader className="text-center pb-3">
+                <CardTitle className="text-red-900">Custom Design</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center pt-0">
+                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-gray-600 mt-2">Professional design services included</p>
               </CardContent>
             </Card>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 } 
