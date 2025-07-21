@@ -73,10 +73,10 @@ export default function AdminDashboard() {
 
   const quickActions = [
     {
-      title: "Add Product",
-      description: "Create a new product listing",
+      title: "Manage Products",
+      description: "View and edit all products",
       icon: Plus,
-      href: "/admin/products/new",
+      href: "/admin/products",
       color: "text-blue-600",
       bgColor: "bg-blue-100"
     },

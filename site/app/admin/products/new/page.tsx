@@ -1,0 +1,331 @@
+"use client"
+
+import { useState, useRef } from "react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { 
+  Package, 
+  ArrowLeft, 
+  Upload, 
+  X,
+  Save,
+  Image as ImageIcon
+} from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
+import { toast } from "sonner"
+
+export default function NewProductPage() {
+  const { data: session, status } = useSession()
+  const router = useRouter()
+  const fileInputRef = useRef<HTMLInputElement>(null)
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    price: "",
+    category: "",
+    status: "active"
+  })
+  const [images, setImages] = useState<string[]>([])
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    )
+  }
+
+  if (status === "unauthenticated") {
+    router.push("/admin/login")
+    return null
+  }
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files
+    if (files) {
+      Array.from(files).forEach(file => {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          if (e.target?.result) {
+            setImages(prev => [...prev, e.target!.result as string])
+          }
+        }
+        reader.readAsDataURL(file)
+      })
+    }
+  }
+
+  const removeImage = (index: number) => {
+    setImages(prev => prev.filter((_, i) => i !== index))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      // In a real app, you would upload images to Cloudinary first
+      // then save the product data to the database
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      toast.success("Product created successfully!")
+      router.push("/admin/products")
+    } catch (error) {
+      toast.error("Failed to create product")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center space-x-4">
+              <Link href="/admin/products">
+                <Button variant="outline" size="sm">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to Products
+                </Button>
+              </Link>
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <Package className="w-5 h-5 text-white" />
+              </div>
+              <h1 className="text-xl font-semibold text-gray-900">Add New Product</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Basic Information */}
+          <Card className="border-0 shadow-lg">
+            <CardHeader>
+              <CardTitle>Basic Information</CardTitle>
+              <CardDescription>
+                Enter the basic details for your product
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Product Name *</Label>
+                  <Input
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                    placeholder="e.g., Custom T-Shirts"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="price">Price *</Label>
+                  <Input
+                    id="price"
+                    value={formData.price}
+                    onChange={(e) => setFormData(prev => ({ ...prev, price: e.target.value }))}
+                    placeholder="e.g., $12.99"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="category">Category *</Label>
+                  <Select value={formData.category} onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="apparel">Apparel</SelectItem>
+                      <SelectItem value="drinkware">Drinkware</SelectItem>
+                      <SelectItem value="office">Office</SelectItem>
+                      <SelectItem value="bags">Bags</SelectItem>
+                      <SelectItem value="accessories">Accessories</SelectItem>
+                      <SelectItem value="marketing">Marketing</SelectItem>
+                      <SelectItem value="electronics">Electronics</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="status">Status</Label>
+                  <Select value={formData.status} onValueChange={(value) => setFormData(prev => ({ ...prev, status: value }))}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="active">Active</SelectItem>
+                      <SelectItem value="inactive">Inactive</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="description">Description *</Label>
+                <Textarea
+                  id="description"
+                  value={formData.description}
+                  onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                  placeholder="Describe your product..."
+                  rows={4}
+                  required
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Images */}
+          <Card className="border-0 shadow-lg">
+            <CardHeader>
+              <CardTitle>Product Images</CardTitle>
+              <CardDescription>
+                Upload images for your product. First image will be the main image.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* Image Upload Area */}
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                <ImageIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Upload Images</h3>
+                <p className="text-gray-600 mb-4">
+                  Drag and drop images here, or click to select files
+                </p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  <Upload className="w-4 h-4 mr-2" />
+                  Choose Files
+                </Button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                />
+              </div>
+
+              {/* Image Preview */}
+              {images.length > 0 && (
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-4">Uploaded Images</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {images.map((image, index) => (
+                      <div key={index} className="relative group">
+                        <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                          <Image
+                            src={image}
+                            alt={`Product image ${index + 1}`}
+                            width={200}
+                            height={200}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => removeImage(index)}
+                          className="absolute top-2 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                        {index === 0 && (
+                          <div className="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                            Main
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Additional Details */}
+          <Card className="border-0 shadow-lg">
+            <CardHeader>
+              <CardTitle>Additional Details</CardTitle>
+              <CardDescription>
+                Add any additional information about your product
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="sku">SKU</Label>
+                  <Input
+                    id="sku"
+                    placeholder="Stock Keeping Unit"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="weight">Weight (g)</Label>
+                  <Input
+                    id="weight"
+                    type="number"
+                    placeholder="0"
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="specifications">Specifications</Label>
+                <Textarea
+                  id="specifications"
+                  placeholder="Enter product specifications..."
+                  rows={3}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Submit */}
+          <div className="flex justify-end space-x-4">
+            <Link href="/admin/products">
+              <Button type="button" variant="outline">
+                Cancel
+              </Button>
+            </Link>
+            <Button 
+              type="submit" 
+              className="bg-blue-600 hover:bg-blue-700"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                  Creating...
+                </>
+              ) : (
+                <>
+                  <Save className="w-4 h-4 mr-2" />
+                  Create Product
+                </>
+              )}
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+} 
