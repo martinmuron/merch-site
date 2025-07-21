@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ShoppingBag, Star, Search, Filter } from "lucide-react"
+import { ShoppingBag, Star, Search } from "lucide-react"
 import Link from "next/link"
 
 export default function ProductsPage() {
