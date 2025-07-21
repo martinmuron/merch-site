@@ -1,11 +1,7 @@
 import NextAuth from "next-auth"
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { db } from "@/lib/db"
-import bcrypt from "bcryptjs"
 
 const handler = NextAuth({
-  adapter: PrismaAdapter(db),
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -18,31 +14,24 @@ const handler = NextAuth({
           return null
         }
 
-        const user = await db.adminUser.findUnique({
-          where: {
-            email: credentials.email
+        // Hardcoded admin user for now
+        const adminEmail = "admin@merchsite.com"
+        const adminPassword = "123456"
+        
+        if (credentials.email === adminEmail) {
+          // For now, we'll do a simple password comparison
+          // In production, you should hash the password properly
+          if (credentials.password === adminPassword) {
+            return {
+              id: "1",
+              email: adminEmail,
+              name: "Admin User",
+              role: "admin",
+            }
           }
-        })
-
-        if (!user) {
-          return null
         }
 
-        const isPasswordValid = await bcrypt.compare(
-          credentials.password,
-          user.hashedPassword
-        )
-
-        if (!isPasswordValid) {
-          return null
-        }
-
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          role: user.role,
-        }
+        return null
       }
     })
   ],
