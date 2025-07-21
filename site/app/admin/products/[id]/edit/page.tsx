@@ -325,7 +325,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
                       <Input
                         id="image-upload"
                         type="file"
-                        accept="image/*"
+                        accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
                         onChange={handleImageUpload}
                         className="flex-1"
                       />
@@ -333,6 +333,9 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
                         <Upload className="w-4 h-4" />
                       </Button>
                     </div>
+                    <p className="text-xs text-gray-500">
+                      Accepted formats: JPEG, PNG, WebP, GIF. Maximum size: 5MB.
+                    </p>
                   </div>
 
                   <div className="space-y-2">

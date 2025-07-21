@@ -53,6 +53,20 @@ export default function NewProductPage() {
     const files = event.target.files
     if (files) {
       Array.from(files).forEach(file => {
+        // Validate file type
+        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif']
+        if (!allowedTypes.includes(file.type)) {
+          toast.error(`Invalid file type: ${file.name}. Please upload JPEG, PNG, WebP, or GIF.`)
+          return
+        }
+
+        // Validate file size (5MB limit)
+        const maxSize = 5 * 1024 * 1024 // 5MB
+        if (file.size > maxSize) {
+          toast.error(`File too large: ${file.name}. Maximum size is 5MB.`)
+          return
+        }
+
         const reader = new FileReader()
         reader.onload = (e) => {
           if (e.target?.result) {
@@ -215,11 +229,14 @@ export default function NewProductPage() {
                   <Upload className="w-4 h-4 mr-2" />
                   Choose Files
                 </Button>
+                <p className="text-xs text-gray-500 text-center mt-2">
+                  Accepted formats: JPEG, PNG, WebP, GIF. Maximum size: 5MB per file.
+                </p>
                 <input
                   ref={fileInputRef}
                   type="file"
                   multiple
-                  accept="image/*"
+                                          accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
                   onChange={handleImageUpload}
                   className="hidden"
                 />
