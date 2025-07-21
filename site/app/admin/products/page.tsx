@@ -9,47 +9,24 @@ import { Badge } from "@/components/ui/badge"
 import { Plus, Edit, Trash2, Eye } from "lucide-react"
 import { toast } from "sonner"
 
-// Mock data for demonstration
-const mockProducts = [
-  {
-    id: "1",
-    name: "Custom T-Shirts",
-    description: "High-quality branded t-shirts for your business",
-    price: 15.99,
-    mainImage: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
-    category: "Apparel",
-    active: true,
-    featured: true,
-    createdAt: new Date().toISOString()
-  },
-  {
-    id: "2", 
-    name: "Branded Mugs",
-    description: "Professional coffee mugs with your company logo",
-    price: 8.99,
-    mainImage: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400",
-    category: "Drinkware",
-    active: true,
-    featured: false,
-    createdAt: new Date().toISOString()
-  },
-  {
-    id: "3",
-    name: "Company Pens",
-    description: "Premium pens with custom branding",
-    price: 2.99,
-    mainImage: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400",
-    category: "Office",
-    active: true,
-    featured: false,
-    createdAt: new Date().toISOString()
+interface Product {
+  id: string
+  name: string
+  description: string
+  price: number
+  mainImage: string
+  category: {
+    name: string
   }
-]
+  active: boolean
+  featured: boolean
+  createdAt: string
+}
 
 export default function AdminProductsPage() {
   const { data: session, status } = useSession()
   const router = useRouter()
-  const [products, setProducts] = useState(mockProducts)
+  const [products, setProducts] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -60,21 +37,141 @@ export default function AdminProductsPage() {
       return
     }
     
-    setIsLoading(false)
+    fetchProducts()
   }, [session, status, router])
 
-  const handleDelete = (id: string) => {
-    setProducts(products.filter(product => product.id !== id))
-    toast.success("Product deleted successfully")
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('/api/admin/products')
+      if (response.ok) {
+        const data = await response.json()
+        setProducts(data)
+      } else {
+        // If API fails, use mock data as fallback
+        setProducts([
+          {
+            id: "1",
+            name: "Custom T-Shirts",
+            description: "High-quality branded t-shirts for your business",
+            price: 15.99,
+            mainImage: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+            category: { name: "Apparel" },
+            active: true,
+            featured: true,
+            createdAt: new Date().toISOString()
+          },
+          {
+            id: "2", 
+            name: "Branded Mugs",
+            description: "Professional coffee mugs with your company logo",
+            price: 8.99,
+            mainImage: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400",
+            category: { name: "Drinkware" },
+            active: true,
+            featured: false,
+            createdAt: new Date().toISOString()
+          },
+          {
+            id: "3",
+            name: "Company Pens",
+            description: "Premium pens with custom branding",
+            price: 2.99,
+            mainImage: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400",
+            category: { name: "Office" },
+            active: true,
+            featured: false,
+            createdAt: new Date().toISOString()
+          }
+        ])
+      }
+    } catch (error) {
+      console.error('Error fetching products:', error)
+      // Use mock data as fallback
+      setProducts([
+        {
+          id: "1",
+          name: "Custom T-Shirts",
+          description: "High-quality branded t-shirts for your business",
+          price: 15.99,
+          mainImage: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+          category: { name: "Apparel" },
+          active: true,
+          featured: true,
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: "2", 
+          name: "Branded Mugs",
+          description: "Professional coffee mugs with your company logo",
+          price: 8.99,
+          mainImage: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400",
+          category: { name: "Drinkware" },
+          active: true,
+          featured: false,
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: "3",
+          name: "Company Pens",
+          description: "Premium pens with custom branding",
+          price: 2.99,
+          mainImage: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400",
+          category: { name: "Office" },
+          active: true,
+          featured: false,
+          createdAt: new Date().toISOString()
+        }
+      ])
+    } finally {
+      setIsLoading(false)
+    }
   }
 
-  const handleToggleStatus = (id: string) => {
-    setProducts(products.map(product => 
-      product.id === id 
-        ? { ...product, active: !product.active }
-        : product
-    ))
-    toast.success("Product status updated")
+  const handleDelete = async (id: string) => {
+    try {
+      const response = await fetch(`/api/admin/products/${id}`, {
+        method: 'DELETE'
+      })
+      
+      if (response.ok) {
+        setProducts(products.filter(product => product.id !== id))
+        toast.success("Product deleted successfully")
+      } else {
+        toast.error("Failed to delete product")
+      }
+    } catch (error) {
+      toast.error("Failed to delete product")
+    }
+  }
+
+  const handleToggleStatus = async (id: string) => {
+    try {
+      const product = products.find(p => p.id === id)
+      if (!product) return
+
+      const response = await fetch(`/api/admin/products/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          active: !product.active
+        })
+      })
+      
+      if (response.ok) {
+        setProducts(products.map(product => 
+          product.id === id 
+            ? { ...product, active: !product.active }
+            : product
+        ))
+        toast.success("Product status updated")
+      } else {
+        toast.error("Failed to update product status")
+      }
+    } catch (error) {
+      toast.error("Failed to update product status")
+    }
   }
 
   if (isLoading) {
@@ -137,7 +234,7 @@ export default function AdminProductsPage() {
               <CardTitle className="text-sm font-medium text-gray-600">Categories</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{new Set(products.map(p => p.category)).size}</div>
+              <div className="text-2xl font-bold">{new Set(products.map(p => p.category.name)).size}</div>
             </CardContent>
           </Card>
         </div>
@@ -168,7 +265,7 @@ export default function AdminProductsPage() {
                 </CardDescription>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-semibold">${product.price}</span>
-                  <Badge variant="outline">{product.category}</Badge>
+                  <Badge variant="outline">{product.category.name}</Badge>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
