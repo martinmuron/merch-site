@@ -36,8 +36,7 @@ export function ContactForm() {
     handleSubmit,
     formState: { errors },
     reset,
-    setValue,
-    watch
+    setValue
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema)
   })
@@ -67,10 +66,10 @@ export function ContactForm() {
           <h3 className="text-xl font-semibold text-gray-900 mb-2">
             Quote Request Sent!
           </h3>
-          <p className="text-gray-600 mb-6">
-            Thank you for your interest. We'll provide a custom quote within 2 hours 
-            and follow up with design consultation options.
-          </p>
+                      <p className="text-gray-600 mb-6">
+              Thank you for your interest. We&apos;ll provide a custom quote within 2 hours 
+              and follow up with design consultation options.
+            </p>
           <Button 
             onClick={() => setIsSuccess(false)}
             className="bg-blue-600 hover:bg-blue-700"
@@ -89,9 +88,9 @@ export function ContactForm() {
           <Building2 className="w-5 h-5 text-blue-600" />
           Request Custom Quote
         </CardTitle>
-        <CardDescription>
-          Get a personalized quote for your branded merchandise. We'll respond within 2 hours.
-        </CardDescription>
+                  <CardDescription>
+            Get a personalized quote for your branded merchandise. We&apos;ll respond within 2 hours.
+          </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">

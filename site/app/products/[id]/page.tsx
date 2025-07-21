@@ -6,16 +6,17 @@ import Link from "next/link"
 import Image from "next/image"
 
 interface ProductDetailPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const { id } = await params
   // Mock product data - in a real app this would come from a database
   const product = {
-    id: params.id,
-    name: `Premium Product ${params.id}`,
+    id: id,
+    name: `Premium Product ${id}`,
     description: "This exceptional product showcases our commitment to quality and innovative design. Crafted with premium materials and attention to detail, it represents the perfect blend of functionality and aesthetic appeal. Whether you're looking for style, performance, or both, this product delivers on all fronts.",
     price: 299,
     rating: 4.8,
