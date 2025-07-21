@@ -1,11 +1,7 @@
 import { Navbar } from "@/components/navbar"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { ContactForm } from "@/components/contact-form"
+import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -25,67 +21,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle>Send us a Message</CardTitle>
-              <CardDescription>
-                Fill out the form below and we&apos;ll get back to you within 24 hours.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="John" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Doe" />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="product">Product Interest (Optional)</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a product" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="product1">Premium Product 1</SelectItem>
-                      <SelectItem value="product2">Premium Product 2</SelectItem>
-                      <SelectItem value="product3">Premium Product 3</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us about your inquiry..."
-                    rows={5}
-                  />
-                </div>
-                
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <ContactForm />
 
           {/* Contact Information */}
           <div className="space-y-8">
