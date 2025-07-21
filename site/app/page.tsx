@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ShoppingBag, Star, ArrowRight, Building2, Users, Award } from "lucide-react"
+import { ShoppingBag, ArrowRight, Building2, Users, Award } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -131,12 +131,7 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-1">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
+                  <div className="flex items-center justify-between mb-4">
                     <span className="text-lg font-semibold text-blue-600">
                       {product.price}
                     </span>
