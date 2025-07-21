@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ShoppingBag, Star, Search } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function ProductsPage() {
   return (
@@ -61,10 +62,25 @@ export default function ProductsPage() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {Array.from({ length: 12 }, (_, i) => (
+          {Array.from({ length: 12 }, (_, i) => {
+            const placeholderImages = [
+              "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop"
+            ]
+            return (
             <Card key={i} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-lg flex items-center justify-center">
-                <ShoppingBag className="w-16 h-16 text-gray-400" />
+              <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-lg flex items-center justify-center overflow-hidden">
+                <Image
+                  src={placeholderImages[i % placeholderImages.length]}
+                  alt={`Product ${i + 1}`}
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg">Premium Product {i + 1}</CardTitle>
@@ -90,7 +106,7 @@ export default function ProductsPage() {
                 </Link>
               </CardContent>
             </Card>
-          ))}
+          )})}
         </div>
 
         {/* Pagination */}

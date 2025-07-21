@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ShoppingBag, Star, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -57,10 +58,22 @@ export default function HomePage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Sample Product Cards */}
-            {[1, 2, 3].map((i) => (
+            {[1, 2, 3].map((i) => {
+              const placeholderImages = [
+                "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
+                "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+                "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop"
+              ]
+              return (
               <Card key={i} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-                <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-lg flex items-center justify-center">
-                  <ShoppingBag className="w-16 h-16 text-gray-400" />
+                <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-lg flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={placeholderImages[i - 1]}
+                    alt={`Featured Product ${i}`}
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg">Premium Product {i}</CardTitle>
@@ -84,7 +97,7 @@ export default function HomePage() {
                   </Button>
                 </CardContent>
               </Card>
-            ))}
+            )})}
           </div>
           
           <div className="text-center mt-12">
