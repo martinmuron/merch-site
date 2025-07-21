@@ -1,16 +1,16 @@
-# MerchSite - Premium Product Catalog
+# MerchSite - Business Merchandise Catalog
 
-A beautiful, modern product catalog website built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, featuring Apple-style design and smooth animations. This is a pure catalog website with no checkout functionality - designed to showcase products and facilitate customer inquiries.
+A professional, modern merchandise catalog website built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, designed specifically for B2B customers. Perfect for restaurants, offices, and businesses looking for custom branded products. This is a pure catalog website with no checkout functionality - designed to showcase products and facilitate quote requests.
 
 ![MerchSite Preview](https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=400&fit=crop)
 
 ## ✨ Features
 
-- **Beautiful Design**: Apple-inspired minimalistic design with smooth animations
+- **Professional Design**: Clean, business-focused design with smooth animations
 - **Responsive Layout**: Optimized for all devices and screen sizes
-- **Product Catalog**: Browse products with filtering and search capabilities
-- **Product Details**: Detailed product pages with image galleries and specifications
-- **Contact System**: Form validation and success states for customer inquiries
+- **Business Catalog**: Browse merchandise with filtering and search capabilities
+- **Product Details**: Detailed product pages with specifications and pricing
+- **Quote System**: Form validation and success states for quote requests
 - **Error Handling**: Graceful error boundaries and 404 pages
 - **Performance**: Optimized images and fast loading times
 - **SEO Ready**: Meta tags and structured data for search engines

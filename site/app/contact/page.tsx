@@ -1,35 +1,39 @@
 import { Navbar } from "@/components/navbar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Building2 } from "lucide-react"
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Get in Touch
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Get Your Custom Quote
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have questions about our products? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+            Ready to brand your business? Get a custom quote for your merchandise needs. 
+            Perfect for restaurants, offices, and promotional campaigns.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Form */}
           <ContactForm />
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  <Building2 className="w-5 h-5 text-blue-600" />
+                  Business Inquiries
+                </CardTitle>
                 <CardDescription>
-                  Reach out to us through any of these channels.
+                  Get in touch for custom quotes and bulk pricing.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -39,8 +43,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">hello@merchsite.com</p>
-                    <p className="text-sm text-gray-500">We&apos;ll respond within 24 hours</p>
+                    <p className="text-gray-600">sales@merchsite.com</p>
+                    <p className="text-sm text-gray-500">Custom quotes within 2 hours</p>
                   </div>
                 </div>
                 
@@ -51,7 +55,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Phone</h3>
                     <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-sm text-gray-500">Mon-Fri 9AM-6PM EST</p>
+                    <p className="text-sm text-gray-500">Mon-Fri 8AM-6PM EST</p>
                   </div>
                 </div>
                 
@@ -60,10 +64,10 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Address</h3>
+                    <h3 className="font-semibold text-gray-900">Office</h3>
                     <p className="text-gray-600">
-                      123 Innovation Street<br />
-                      Tech City, TC 12345<br />
+                      123 Business District<br />
+                      Commerce City, CC 12345<br />
                       United States
                     </p>
                   </div>
@@ -73,21 +77,55 @@ export default function ContactPage() {
 
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle>Business Hours</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-blue-600" />
+                  Business Hours
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Monday - Friday</span>
-                    <span className="font-medium">9:00 AM - 6:00 PM</span>
+                    <span className="font-medium">8:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Saturday</span>
-                    <span className="font-medium">10:00 AM - 4:00 PM</span>
+                    <span className="font-medium">9:00 AM - 3:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Sunday</span>
                     <span className="font-medium">Closed</span>
+                  </div>
+                  <div className="pt-3 border-t">
+                    <p className="text-sm text-gray-500">
+                      Emergency orders available outside business hours
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg bg-blue-50">
+              <CardHeader>
+                <CardTitle className="text-blue-900">Why Choose Us?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Fast turnaround times (3-5 business days)</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Bulk pricing for large orders</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Free design consultation</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Quality guarantee on all products</span>
                   </div>
                 </div>
               </CardContent>

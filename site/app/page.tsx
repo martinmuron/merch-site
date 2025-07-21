@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ShoppingBag, Star, ArrowRight } from "lucide-react"
+import { ShoppingBag, Star, ArrowRight, Building2, Users, Award } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -12,25 +12,26 @@ export default function HomePage() {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              Premium Products
-              <span className="block text-blue-600">Designed for You</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+              Custom Branded Products
+              <span className="block text-blue-600 mt-2">for Your Business</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Discover our curated collection of high-quality products with Apple-inspired design and exceptional craftsmanship.
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
+              Professional merchandise solutions for restaurants, offices, and businesses. 
+              High-quality branded products that represent your company with style.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
               <Link href="/products">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
                   Browse Products
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button variant="outline" size="lg" className="px-8 py-3">
-                  Get in Touch
+                <Button variant="outline" size="lg" className="px-6 sm:px-8 py-3 border-2 hover:bg-gray-50 transform hover:scale-105 transition-all duration-200">
+                  Get Quote
                 </Button>
               </Link>
             </div>
@@ -44,41 +45,89 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="py-24 bg-white">
+      {/* Features Section */}
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Featured Products
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-200">
+                <Building2 className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Business Solutions</h3>
+              <p className="text-gray-600">Custom branded products for restaurants, offices, and retail businesses</p>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-200">
+                <Award className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Quality</h3>
+              <p className="text-gray-600">High-quality materials and professional printing for lasting impressions</p>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-200">
+                <Users className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Bulk Orders</h3>
+              <p className="text-gray-600">Competitive pricing for large orders and ongoing business relationships</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Popular Business Products
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Handpicked items that showcase our commitment to quality and design excellence.
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+              Our most requested items for restaurants, offices, and promotional campaigns.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Sample Product Cards */}
-            {[1, 2, 3].map((i) => {
-              const placeholderImages = [
-                "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
-                "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
-                "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop"
-              ]
-              return (
-              <Card key={i} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-                <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-lg flex items-center justify-center overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* Business Product Cards */}
+            {[
+              {
+                name: "Custom T-Shirts",
+                description: "Premium cotton shirts with your logo",
+                price: "$12.99",
+                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+                category: "Apparel"
+              },
+              {
+                name: "Branded Mugs",
+                description: "Ceramic mugs perfect for coffee shops",
+                price: "$8.99",
+                image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop",
+                category: "Drinkware"
+              },
+              {
+                name: "Logo Pens",
+                description: "Professional pens with custom branding",
+                price: "$2.99",
+                image: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400&h=400&fit=crop",
+                category: "Office"
+              }
+            ].map((product, i) => (
+              <Card key={i} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white overflow-hidden transform hover:-translate-y-1">
+                <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <Image
-                    src={placeholderImages[i - 1]}
-                    alt={`Featured Product ${i}`}
+                    src={product.image}
+                    alt={product.name}
                     width={400}
                     height={400}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-lg">Premium Product {i}</CardTitle>
-                  <CardDescription>
-                    Exceptional quality with innovative design
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">{product.name}</CardTitle>
+                    <span className="text-sm text-blue-600 font-medium">{product.category}</span>
+                  </div>
+                  <CardDescription className="text-gray-600">
+                    {product.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -89,20 +138,20 @@ export default function HomePage() {
                       ))}
                     </div>
                     <span className="text-lg font-semibold text-blue-600">
-                      $299
+                      {product.price}
                     </span>
                   </div>
-                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700">
-                    Learn More
+                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-200">
+                    Get Quote
                   </Button>
                 </CardContent>
               </Card>
-            )})}
+            ))}
           </div>
           
           <div className="text-center mt-12">
             <Link href="/products">
-              <Button variant="outline" size="lg" className="px-8 py-3">
+              <Button variant="outline" size="lg" className="px-6 sm:px-8 py-3 border-2 hover:bg-gray-50 transform hover:scale-105 transition-all duration-200">
                 View All Products
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -112,17 +161,18 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="py-16 sm:py-20 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Get Started?
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
+            Ready to Brand Your Business?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Contact us today to learn more about our products and how we can help you find the perfect solution.
+          <p className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed">
+            Get a custom quote for your branded merchandise. Perfect for restaurants, 
+            offices, and promotional campaigns. Bulk pricing available.
           </p>
           <Link href="/contact">
-            <Button size="lg" variant="secondary" className="px-8 py-3">
-              Contact Us
+            <Button size="lg" variant="secondary" className="px-6 sm:px-8 py-3 bg-white text-blue-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg">
+              Get Custom Quote
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
@@ -140,7 +190,7 @@ export default function HomePage() {
               <span className="text-xl font-semibold">MerchSite</span>
             </div>
             <p className="text-gray-400">
-              © 2024 MerchSite. All rights reserved.
+              Professional branded merchandise for businesses. © 2024 MerchSite. All rights reserved.
             </p>
           </div>
         </div>

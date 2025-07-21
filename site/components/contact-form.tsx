@@ -10,15 +10,18 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Send, CheckCircle, AlertCircle } from "lucide-react"
+import { Send, CheckCircle, AlertCircle, Building2 } from "lucide-react"
 import { toast } from "sonner"
 
 const contactSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
   lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  company: z.string().min(2, "Company name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
+  businessType: z.string().min(1, "Please select your business type"),
   productInterest: z.string().optional(),
+  quantity: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters")
 })
 
@@ -32,7 +35,9 @@ export function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
+    setValue,
+    watch
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema)
   })
@@ -49,27 +54,28 @@ export function ContactForm() {
     setIsSuccess(true)
     reset()
     
-    toast.success("Message sent successfully! We'll get back to you soon.")
+    toast.success("Quote request sent! We'll get back to you within 2 hours.")
   }
 
   if (isSuccess) {
     return (
       <Card className="border-0 shadow-lg">
-        <CardContent className="p-8 text-center">
+        <CardContent className="p-6 sm:p-8 text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-green-600" />
           </div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">
-            Message Sent Successfully!
+            Quote Request Sent!
           </h3>
           <p className="text-gray-600 mb-6">
-            Thank you for contacting us. We&apos;ll get back to you within 24 hours.
+            Thank you for your interest. We'll provide a custom quote within 2 hours 
+            and follow up with design consultation options.
           </p>
           <Button 
             onClick={() => setIsSuccess(false)}
             className="bg-blue-600 hover:bg-blue-700"
           >
-            Send Another Message
+            Request Another Quote
           </Button>
         </CardContent>
       </Card>
@@ -79,14 +85,17 @@ export function ContactForm() {
   return (
     <Card className="border-0 shadow-lg">
       <CardHeader>
-        <CardTitle>Send us a Message</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <Building2 className="w-5 h-5 text-blue-600" />
+          Request Custom Quote
+        </CardTitle>
         <CardDescription>
-          Fill out the form below and we&apos;ll get back to you within 24 hours.
+          Get a personalized quote for your branded merchandise. We'll respond within 2 hours.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name *</Label>
               <Input 
@@ -120,53 +129,114 @@ export function ContactForm() {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="email">Email *</Label>
+            <Label htmlFor="company">Company Name *</Label>
             <Input 
-              id="email" 
-              type="email" 
-              placeholder="john@example.com"
-              {...register("email")}
-              className={errors.email ? "border-red-500" : ""}
+              id="company" 
+              placeholder="Your Restaurant or Business"
+              {...register("company")}
+              className={errors.company ? "border-red-500" : ""}
             />
-            {errors.email && (
+            {errors.company && (
               <p className="text-sm text-red-600 flex items-center">
                 <AlertCircle className="w-4 h-4 mr-1" />
-                {errors.email.message}
+                {errors.company.message}
               </p>
             )}
           </div>
           
-          <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input 
-              id="phone" 
-              type="tel" 
-              placeholder="+1 (555) 123-4567"
-              {...register("phone")}
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email *</Label>
+              <Input 
+                id="email" 
+                type="email" 
+                placeholder="john@yourbusiness.com"
+                {...register("email")}
+                className={errors.email ? "border-red-500" : ""}
+              />
+              {errors.email && (
+                <p className="text-sm text-red-600 flex items-center">
+                  <AlertCircle className="w-4 h-4 mr-1" />
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input 
+                id="phone" 
+                type="tel" 
+                placeholder="+1 (555) 123-4567"
+                {...register("phone")}
+              />
+            </div>
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="productInterest">Product Interest (Optional)</Label>
-            <Select onValueChange={(value) => register("productInterest").onChange({ target: { value } })}>
-              <SelectTrigger>
-                <SelectValue placeholder="Select a product" />
+            <Label htmlFor="businessType">Business Type *</Label>
+            <Select onValueChange={(value) => setValue("businessType", value)}>
+              <SelectTrigger className={errors.businessType ? "border-red-500" : ""}>
+                <SelectValue placeholder="Select your business type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="product1">Premium Product 1</SelectItem>
-                <SelectItem value="product2">Premium Product 2</SelectItem>
-                <SelectItem value="product3">Premium Product 3</SelectItem>
+                <SelectItem value="restaurant">Restaurant / Food Service</SelectItem>
+                <SelectItem value="office">Office / Corporate</SelectItem>
+                <SelectItem value="retail">Retail Store</SelectItem>
+                <SelectItem value="healthcare">Healthcare</SelectItem>
+                <SelectItem value="education">Education</SelectItem>
+                <SelectItem value="events">Events / Promotional</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>
+            {errors.businessType && (
+              <p className="text-sm text-red-600 flex items-center">
+                <AlertCircle className="w-4 h-4 mr-1" />
+                {errors.businessType.message}
+              </p>
+            )}
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="productInterest">Product Interest</Label>
+              <Select onValueChange={(value) => setValue("productInterest", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select products" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="apparel">Apparel (T-shirts, Hats, Aprons)</SelectItem>
+                  <SelectItem value="drinkware">Drinkware (Mugs, Water Bottles)</SelectItem>
+                  <SelectItem value="office">Office Supplies (Pens, Notebooks)</SelectItem>
+                  <SelectItem value="bags">Bags (Tote Bags, Backpacks)</SelectItem>
+                  <SelectItem value="marketing">Marketing Materials (Stickers, Flyers)</SelectItem>
+                  <SelectItem value="multiple">Multiple Categories</SelectItem>
+                  <SelectItem value="custom">Custom Design</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="quantity">Estimated Quantity</Label>
+              <Select onValueChange={(value) => setValue("quantity", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select quantity" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="10-50">10-50 pieces</SelectItem>
+                  <SelectItem value="50-100">50-100 pieces</SelectItem>
+                  <SelectItem value="100-500">100-500 pieces</SelectItem>
+                  <SelectItem value="500+">500+ pieces</SelectItem>
+                  <SelectItem value="ongoing">Ongoing orders</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="message">Message *</Label>
+            <Label htmlFor="message">Project Details *</Label>
             <Textarea 
               id="message" 
-              placeholder="Tell us about your inquiry..."
-              rows={5}
+              placeholder="Tell us about your project, timeline, and any specific requirements..."
+              rows={4}
               {...register("message")}
               className={errors.message ? "border-red-500" : ""}
             />
@@ -180,18 +250,18 @@ export function ContactForm() {
           
           <Button 
             type="submit" 
-            className="w-full bg-blue-600 hover:bg-blue-700"
+            className="w-full bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-200"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
               <>
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                Sending...
+                Sending Request...
               </>
             ) : (
               <>
                 <Send className="w-4 h-4 mr-2" />
-                Send Message
+                Get Custom Quote
               </>
             )}
           </Button>
