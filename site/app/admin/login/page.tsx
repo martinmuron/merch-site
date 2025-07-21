@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Lock, Mail } from "lucide-react"
+import { Lock, Mail } from "lucide-react"
 import { toast } from "sonner"
-import Link from "next/link"
+import { Navbar } from "@/components/navbar"
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("")
@@ -49,26 +49,9 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-2 text-gray-900 hover:text-gray-700">
-                <ArrowLeft className="w-4 h-4" />
-                <span>Back to Site</span>
-              </Link>
-            </div>
-            <div className="flex items-center space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link>
-              <Link href="/products" className="text-gray-600 hover:text-gray-900">Products</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="flex items-center justify-center min-h-[calc(100vh-80px)] p-4">
+      <Navbar />
+      
+      <div className="flex items-center justify-center min-h-[calc(100vh-64px)] p-4">
         <Card className="w-full max-w-md border-0 shadow-xl">
           <CardHeader className="text-center">
             <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">

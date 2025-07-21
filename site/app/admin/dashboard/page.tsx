@@ -11,6 +11,7 @@ import {
   Plus,
   ArrowRight
 } from "lucide-react"
+import { Navbar } from "@/components/navbar"
 
 export default function AdminDashboardPage() {
   const { data: session, status } = useSession()
@@ -51,7 +52,9 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+      <Navbar />
+      
+      {/* Dashboard Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -60,12 +63,6 @@ export default function AdminDashboardPage() {
               <p className="text-gray-600">Welcome back, {session.user?.name}</p>
             </div>
             <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                onClick={() => router.push("/")}
-              >
-                View Site
-              </Button>
               <Button
                 variant="outline"
                 onClick={() => router.push("/api/auth/signout")}
