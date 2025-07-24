@@ -1,13 +1,7 @@
 [build]
 builder = "NIXPACKS"
 
-[build.nixpacksConfig]
-buildCommand = "cd site && npm ci && npm run build"
-
 [deploy]
-startCommand = "cd site && npm start"
+startCommand = "npm start"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
-
-[env]
-NODE_ENV = "production"
