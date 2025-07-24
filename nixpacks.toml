@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ['nodejs', 'npm']
+
+[phases.install]
+cmds = ['cd site && npm ci']
+
+[phases.build]
+cmds = ['cd site && npm run build']
+
+[start]
+cmd = 'cd site && npm start'
