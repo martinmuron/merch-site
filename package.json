@@ -1,0 +1,14 @@
+{
+  "name": "merch-site",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cd site && npm run dev",
+    "build": "cd site && npm ci && npm run build",
+    "start": "cd site && npm start",
+    "postinstall": "cd site && npm install"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

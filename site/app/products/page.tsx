@@ -172,7 +172,7 @@ export default function ProductsPage() {
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {businessProducts.map((product) => (
-            <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white overflow-hidden transform hover:-translate-y-1">
+            <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white overflow-hidden transform hover:-translate-y-1 flex flex-col h-full">
               <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                 <Image
                   src={product.image}
@@ -182,7 +182,7 @@ export default function ProductsPage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-3 flex-grow">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm text-red-700 font-medium">{product.category}</span>
                   <span className="text-lg font-semibold text-red-700">
@@ -194,7 +194,7 @@ export default function ProductsPage() {
                   {product.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 mt-auto">
                 <Link href={`/products/${product.id}`}>
                   <Button className="w-full bg-red-700 hover:bg-red-800 transform hover:scale-105 transition-all duration-200">
                     View Details
