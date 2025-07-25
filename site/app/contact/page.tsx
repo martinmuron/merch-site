@@ -91,43 +91,51 @@ export default function ContactPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-0 shadow-lg bg-red-50">
+            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
+                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
                 <CardTitle className="text-red-900">Quality Materials</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-gray-600 mt-2">Premium fabrics and materials for lasting quality</p>
+                <p className="text-gray-600">Premium fabrics and materials for lasting quality</p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg bg-red-50">
+            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
+                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
                 <CardTitle className="text-red-900">Fast Turnaround</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-gray-600 mt-2">Quick production and delivery for urgent orders</p>
+                <p className="text-gray-600">Quick production and delivery for urgent orders</p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg bg-red-50">
+            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
+                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
                 <CardTitle className="text-red-900">Bulk Pricing</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-gray-600 mt-2">Competitive rates for large quantity orders</p>
+                <p className="text-gray-600">Competitive rates for large quantity orders</p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg bg-red-50">
+            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
+                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
                 <CardTitle className="text-red-900">Custom Design</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <div className="w-2 h-2 bg-red-700 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-gray-600 mt-2">Professional design services included</p>
+                <p className="text-gray-600">Professional design services included</p>
               </CardContent>
             </Card>
           </div>
