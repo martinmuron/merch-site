@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -22,6 +22,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { toast } from "sonner"
 
+interface Category {
+  id: string
+  name: string
+  description?: string
+}
+
 export default function NewProductPage() {
   const { data: session, status } = useSession()
   const router = useRouter()
@@ -34,8 +40,35 @@ export default function NewProductPage() {
     category: "",
     status: "active"
   })
+  const [categories, setCategories] = useState<Category[]>([])
   const [images, setImages] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  useEffect(() => {
+    if (status === "loading") return
+    
+    if (!session) {
+      router.push("/admin/login")
+      return
+    }
+    
+    fetchCategories()
+  }, [session, status, router])
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch('/api/admin/categories')
+      if (response.ok) {
+        const data = await response.json()
+        setCategories(data)
+      } else {
+        toast.error("Failed to load categories")
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error)
+      toast.error("Failed to load categories")
+    }
+  }
 
   if (status === "loading") {
     return (
@@ -88,15 +121,60 @@ export default function NewProductPage() {
     setIsSubmitting(true)
 
     try {
-      // In a real app, you would upload images to Cloudinary first
-      // then save the product data to the database
+      // Upload images to Cloudinary first
+      const uploadedImages: string[] = []
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      toast.success("Product created successfully!")
-      router.push("/admin/products")
+      for (const imageDataUrl of images) {
+        // Convert data URL to file
+        const response = await fetch(imageDataUrl)
+        const blob = await response.blob()
+        const file = new File([blob], `image-${Date.now()}.jpg`, { type: 'image/jpeg' })
+        
+        const formData = new FormData()
+        formData.append('file', file)
+        
+        const uploadResponse = await fetch('/api/admin/upload', {
+          method: 'POST',
+          body: formData
+        })
+        
+        if (uploadResponse.ok) {
+          const uploadData = await uploadResponse.json()
+          uploadedImages.push(uploadData.url)
+        } else {
+          throw new Error('Failed to upload image')
+        }
+      }
+
+      // Create product in database
+      const productData = {
+        name: formData.name,
+        description: formData.description,
+        price: parseFloat(formData.price.replace(/[^0-9.]/g, '')),
+        mainImage: uploadedImages[0] || '',
+        galleryImages: uploadedImages.slice(1),
+        categoryId: formData.category,
+        active: formData.status === 'active',
+        featured: false
+      }
+
+      const createResponse = await fetch('/api/admin/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(productData)
+      })
+
+      if (createResponse.ok) {
+        toast.success("Product created successfully!")
+        router.push("/admin/products")
+      } else {
+        const error = await createResponse.json()
+        toast.error(error.error || "Failed to create product")
+      }
     } catch (error) {
+      console.error('Error creating product:', error)
       toast.error("Failed to create product")
     } finally {
       setIsSubmitting(false)
@@ -167,13 +245,11 @@ export default function NewProductPage() {
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="apparel">Apparel</SelectItem>
-                      <SelectItem value="drinkware">Drinkware</SelectItem>
-                      <SelectItem value="office">Office</SelectItem>
-                      <SelectItem value="bags">Bags</SelectItem>
-                      <SelectItem value="accessories">Accessories</SelectItem>
-                      <SelectItem value="marketing">Marketing</SelectItem>
-                      <SelectItem value="electronics">Electronics</SelectItem>
+                      {categories.map(category => (
+                        <SelectItem key={category.id} value={category.id}>
+                          {category.name}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>

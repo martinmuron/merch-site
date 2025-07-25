@@ -11,6 +11,10 @@ A professional, modern merchandise catalog website built with **Next.js 15**, **
 - **Business Catalog**: Browse merchandise with filtering and search capabilities
 - **Product Details**: Detailed product pages with specifications and pricing
 - **Quote System**: Form validation and success states for quote requests
+- **Admin Dashboard**: Complete admin panel for product and category management
+- **Image Upload**: Cloudinary integration for product image management
+- **Authentication**: NextAuth.js integration for admin access
+- **Database**: PostgreSQL with Prisma ORM for data persistence
 - **Error Handling**: Graceful error boundaries and 404 pages
 - **Performance**: Optimized images and fast loading times
 - **SEO Ready**: Meta tags and structured data for search engines
@@ -23,8 +27,10 @@ A professional, modern merchandise catalog website built with **Next.js 15**, **
 - **UI Components**: ShadCN UI
 - **Forms**: React Hook Form + Zod validation
 - **Icons**: Lucide React
+- **Authentication**: NextAuth.js
+- **Database**: PostgreSQL with Prisma ORM
+- **Image Storage**: Cloudinary
 - **Deployment**: Railway
-- **Database**: PostgreSQL (ready for future use)
 
 ## 📦 Installation
 
@@ -49,8 +55,13 @@ A professional, modern merchandise catalog website built with **Next.js 15**, **
 
 3. **Set up environment variables**
    ```bash
-   cp .env.example .env.local
-   # Edit .env.local with your configuration
+   # Create .env.local file with the following variables:
+   DATABASE_URL="postgresql://username:password@localhost:5432/merchandise_site"
+   NEXTAUTH_URL="http://localhost:3000"
+   NEXTAUTH_SECRET="your-nextauth-secret-key-here"
+   CLOUDINARY_CLOUD_NAME="your-cloud-name"
+   CLOUDINARY_API_KEY="your-api-key"
+   CLOUDINARY_API_SECRET="your-api-secret"
    ```
 
 4. **Run the development server**
@@ -58,8 +69,19 @@ A professional, modern merchandise catalog website built with **Next.js 15**, **
    npm run dev
    ```
 
-5. **Open your browser**
+5. **Set up the database**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   npm run seed-admin
+   ```
+
+6. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
+   
+   **Admin Access**: Navigate to [http://localhost:3000/admin](http://localhost:3000/admin)
+   - Email: admin@merchsite.com
+   - Password: 123456
 
 ## 🏗️ Project Structure
 
@@ -104,30 +126,52 @@ site/
 
 ## 📱 Pages
 
-### Homepage (`/`)
+### Public Pages
+
+#### Homepage (`/`)
 - Hero section with call-to-action
 - Featured products showcase
 - Company information and contact CTA
 
-### Products (`/products`)
+#### Products (`/products`)
 - Product grid with filtering
 - Search functionality
 - Pagination support
 - Category filtering
 
-### Product Detail (`/products/[id]`)
+#### Product Detail (`/products/[id]`)
 - Product image gallery
 - Detailed specifications
 - Related products
 - Contact inquiry button
 
-### Contact (`/contact`)
+#### Contact (`/contact`)
 - Contact form with validation
 - Company information
 - Business hours
 - Success/error states
 
-### 404 Page
+### Admin Pages
+
+#### Admin Dashboard (`/admin`)
+- Overview statistics
+- Quick actions for product management
+- Navigation to product and category management
+
+#### Product Management (`/admin/products`)
+- Product list with search and filters
+- Add/Edit product form with image upload
+- Delete confirmation modals
+- Status toggle functionality
+
+#### Category Management (`/admin/categories`)
+- Category list and CRUD operations
+- Category assignment interface
+
+#### Admin Login (`/admin/login`)
+- Secure authentication for admin access
+
+### Error Pages
 - Custom error page
 - Navigation options
 - User-friendly messaging
@@ -141,7 +185,7 @@ npm run dev          # Start development server
 npm run build        # Build for production
 npm run start        # Start production server
 npm run lint         # Run ESLint
-npm run type-check   # Run TypeScript check
+npm run seed-admin   # Seed admin user and sample data
 ```
 
 ### Adding New Components
@@ -179,9 +223,12 @@ This project is configured for Railway deployment:
 
 3. **Environment Variables**
    Set the following in Railway:
-   - `NEXTAUTH_SECRET`
-   - `NEXTAUTH_URL`
-   - `DATABASE_URL` (for future database integration)
+   - `DATABASE_URL` - PostgreSQL connection string
+   - `NEXTAUTH_SECRET` - NextAuth.js secret key
+   - `NEXTAUTH_URL` - Your production URL
+   - `CLOUDINARY_CLOUD_NAME` - Your Cloudinary cloud name
+   - `CLOUDINARY_API_KEY` - Your Cloudinary API key
+   - `CLOUDINARY_API_SECRET` - Your Cloudinary API secret
 
 ### Build Process
 
@@ -195,20 +242,21 @@ The build process includes:
 ## 🔮 Future Enhancements
 
 ### Planned Features
-- [ ] Database integration with Prisma
-- [ ] Admin dashboard for content management
-- [ ] Product search and filtering
-- [ ] Image upload functionality
 - [ ] Analytics integration
 - [ ] Multi-language support
 - [ ] PWA capabilities
+- [ ] Advanced product filtering
+- [ ] Bulk product import/export
+- [ ] Email notifications for inquiries
+- [ ] Product variants and options
 
-### Database Schema (Ready)
-The project includes a complete Prisma schema for:
-- Products with categories
-- Contact inquiries
-- Admin users
-- User roles and permissions
+### Current Features
+- ✅ Database integration with Prisma
+- ✅ Admin dashboard for content management
+- ✅ Product search and filtering
+- ✅ Image upload functionality with Cloudinary
+- ✅ Authentication system
+- ✅ Contact inquiry management
 
 ## 🤝 Contributing
 
