@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -54,8 +55,8 @@ export default function AdminProductsPage() {
             id: "1",
             name: "Custom T-Shirts",
             description: "High-quality branded t-shirts for your business",
-            price: 15.99,
-            mainImage: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+            price: 399,
+            mainImage: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center",
             category: { name: "Apparel" },
             active: true,
             featured: true,
@@ -65,8 +66,8 @@ export default function AdminProductsPage() {
             id: "2", 
             name: "Branded Mugs",
             description: "Professional coffee mugs with your company logo",
-            price: 8.99,
-            mainImage: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400",
+            price: 199,
+            mainImage: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop&crop=center",
             category: { name: "Drinkware" },
             active: true,
             featured: false,
@@ -76,8 +77,8 @@ export default function AdminProductsPage() {
             id: "3",
             name: "Company Pens",
             description: "Premium pens with custom branding",
-            price: 2.99,
-            mainImage: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400",
+            price: 49,
+            mainImage: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400&h=400&fit=crop&crop=center",
             category: { name: "Office" },
             active: true,
             featured: false,
@@ -93,8 +94,8 @@ export default function AdminProductsPage() {
           id: "1",
           name: "Custom T-Shirts",
           description: "High-quality branded t-shirts for your business",
-          price: 15.99,
-          mainImage: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+          price: 399,
+          mainImage: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center",
           category: { name: "Apparel" },
           active: true,
           featured: true,
@@ -104,8 +105,8 @@ export default function AdminProductsPage() {
           id: "2", 
           name: "Branded Mugs",
           description: "Professional coffee mugs with your company logo",
-          price: 8.99,
-          mainImage: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400",
+          price: 199,
+          mainImage: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop&crop=center",
           category: { name: "Drinkware" },
           active: true,
           featured: false,
@@ -115,8 +116,8 @@ export default function AdminProductsPage() {
           id: "3",
           name: "Company Pens",
           description: "Premium pens with custom branding",
-          price: 2.99,
-          mainImage: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400",
+          price: 49,
+          mainImage: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400&h=400&fit=crop&crop=center",
           category: { name: "Office" },
           active: true,
           featured: false,
@@ -247,9 +248,11 @@ export default function AdminProductsPage() {
           {products.map((product) => (
             <Card key={product.id} className="overflow-hidden">
               <div className="aspect-video relative">
-                <img
+                <Image
                   src={product.mainImage}
                   alt={product.name}
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-2 right-2 flex gap-1">
@@ -267,7 +270,7 @@ export default function AdminProductsPage() {
                   {product.description}
                 </CardDescription>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">${product.price}</span>
+                  <span className="text-lg font-semibold">{product.price} CZK</span>
                   <Badge variant="outline">{product.category.name}</Badge>
                 </div>
               </CardHeader>

@@ -16,7 +16,7 @@ export default function ProductsPage() {
       description: "Premium cotton shirts with your company logo",
       price: 299,
       category: "Apparel",
-      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ export default function ProductsPage() {
       description: "Ceramic mugs perfect for coffee shops and offices",
       price: 199,
       category: "Drinkware",
-      image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ export default function ProductsPage() {
       description: "Professional pens with custom branding",
       price: 49,
       category: "Office",
-      image: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ export default function ProductsPage() {
       description: "Embroidered caps for outdoor businesses",
       price: 399,
       category: "Apparel",
-      image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 5,
@@ -48,7 +48,7 @@ export default function ProductsPage() {
       description: "Reusable bottles with your brand",
       price: 499,
       category: "Drinkware",
-      image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 6,
@@ -56,7 +56,7 @@ export default function ProductsPage() {
       description: "Custom notebooks for meetings and events",
       price: 149,
       category: "Office",
-      image: "https://images.unsplash.com/photo-1531346680769-1d79b57de5c?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1531346680769-1d79b57de5c?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 7,
@@ -64,7 +64,7 @@ export default function ProductsPage() {
       description: "Eco-friendly bags with your logo",
       price: 249,
       category: "Bags",
-      image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 8,
@@ -72,7 +72,7 @@ export default function ProductsPage() {
       description: "Custom keychains for promotional giveaways",
       price: 99,
       category: "Accessories",
-      image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 9,
@@ -80,7 +80,7 @@ export default function ProductsPage() {
       description: "Custom mouse pads for office branding",
       price: 199,
       category: "Office",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 10,
@@ -88,7 +88,7 @@ export default function ProductsPage() {
       description: "Restaurant aprons with your logo",
       price: 599,
       category: "Apparel",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 11,
@@ -96,7 +96,7 @@ export default function ProductsPage() {
       description: "Custom stickers for packaging and marketing",
       price: 49,
       category: "Marketing",
-      image: "https://images.unsplash.com/photo-1603314585442-ee3b3c16fbcf?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1603314585442-ee3b3c16fbcf?w=400&h=400&fit=crop&crop=center"
     },
     {
       id: 12,
@@ -104,7 +104,7 @@ export default function ProductsPage() {
       description: "Custom USB drives for tech companies",
       price: 349,
       category: "Electronics",
-      image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop&crop=center"
     }
   ];
 
