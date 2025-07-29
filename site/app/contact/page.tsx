@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
-import { Mail, Phone, MapPin, Clock, Building2 } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Building2, Award, Zap, DollarSign, Palette } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -79,7 +79,7 @@ export default function ContactPage() {
       </div>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 sm:py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -90,52 +90,52 @@ export default function ContactPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
-              <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 bg-white">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-8 h-8 text-red-700" />
                 </div>
-                <CardTitle className="text-red-900">Quality Materials</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Quality Materials</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <p className="text-gray-600">Premium fabrics and materials for lasting quality</p>
+                <p className="text-gray-600 leading-relaxed">Premium fabrics and materials for lasting quality and durability</p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
-              <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+            <Card className="border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 bg-white">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="w-8 h-8 text-red-700" />
                 </div>
-                <CardTitle className="text-red-900">Fast Turnaround</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Fast Turnaround</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <p className="text-gray-600">Quick production and delivery for urgent orders</p>
+                <p className="text-gray-600 leading-relaxed">Quick production and delivery for urgent orders and tight deadlines</p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
-              <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+            <Card className="border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 bg-white">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-8 h-8 text-red-700" />
                 </div>
-                <CardTitle className="text-red-900">Bulk Pricing</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Bulk Pricing</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <p className="text-gray-600">Competitive rates for large quantity orders</p>
+                <p className="text-gray-600 leading-relaxed">Competitive rates and discounts for large quantity orders</p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
-              <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+            <Card className="border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 bg-white">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Palette className="w-8 h-8 text-red-700" />
                 </div>
-                <CardTitle className="text-red-900">Custom Design</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Custom Design</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
-                <p className="text-gray-600">Professional design services included</p>
+                <p className="text-gray-600 leading-relaxed">Professional design services included with every order</p>
               </CardContent>
             </Card>
           </div>
