@@ -224,15 +224,15 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="price">Price ($)</Label>
+                    <Label htmlFor="price">Price (CZK)</Label>
                     <Input
                       id="price"
                       type="number"
-                      step="0.01"
+                      step="1"
                       min="0"
                       value={formData.price}
                       onChange={(e) => setFormData(prev => ({ ...prev, price: e.target.value }))}
-                      placeholder="0.00"
+                      placeholder="0"
                       required
                     />
                   </div>

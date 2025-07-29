@@ -226,12 +226,15 @@ export default function NewProductPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="price">Price *</Label>
+                  <Label htmlFor="price">Price (CZK) *</Label>
                   <Input
                     id="price"
+                    type="number"
+                    step="1"
+                    min="0"
                     value={formData.price}
                     onChange={(e) => setFormData(prev => ({ ...prev, price: e.target.value }))}
-                    placeholder="e.g., $12.99"
+                    placeholder="e.g., 299"
                     required
                   />
                 </div>

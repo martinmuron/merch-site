@@ -44,16 +44,33 @@ export function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    console.log("Contact form data:", data)
-    
-    setIsSubmitting(false)
-    setIsSuccess(true)
-    reset()
-    
-    toast.success("Quote request sent! We'll get back to you within 2 hours.")
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          message: `Company: ${data.company}\nBusiness Type: ${data.businessType}\nPhone: ${data.phone || 'Not provided'}\nProduct Interest: ${data.productInterest || 'Not specified'}\nQuantity: ${data.quantity || 'Not specified'}\n\nProject Details:\n${data.message}`
+        })
+      })
+
+      if (response.ok) {
+        setIsSuccess(true)
+        reset()
+        toast.success("Quote request sent! We'll get back to you within 2 hours.")
+      } else {
+        const error = await response.json()
+        toast.error(error.error || "Failed to send request. Please try again.")
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      toast.error("Failed to send request. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSuccess) {

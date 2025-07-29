@@ -14,7 +14,7 @@ export default function ProductsPage() {
       id: 1,
       name: "Custom T-Shirts",
       description: "Premium cotton shirts with your company logo",
-      price: "$12.99",
+      price: 299,
       category: "Apparel",
       image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop"
     },
@@ -22,7 +22,7 @@ export default function ProductsPage() {
       id: 2,
       name: "Branded Mugs",
       description: "Ceramic mugs perfect for coffee shops and offices",
-      price: "$8.99",
+      price: 199,
       category: "Drinkware",
       image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop"
     },
@@ -30,7 +30,7 @@ export default function ProductsPage() {
       id: 3,
       name: "Logo Pens",
       description: "Professional pens with custom branding",
-      price: "$2.99",
+      price: 49,
       category: "Office",
       image: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400&h=400&fit=crop"
     },
@@ -38,7 +38,7 @@ export default function ProductsPage() {
       id: 4,
       name: "Custom Hats",
       description: "Embroidered caps for outdoor businesses",
-      price: "$15.99",
+      price: 399,
       category: "Apparel",
       image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=400&fit=crop"
     },
@@ -46,7 +46,7 @@ export default function ProductsPage() {
       id: 5,
       name: "Water Bottles",
       description: "Reusable bottles with your brand",
-      price: "$18.99",
+      price: 499,
       category: "Drinkware",
       image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop"
     },
@@ -54,7 +54,7 @@ export default function ProductsPage() {
       id: 6,
       name: "Notebooks",
       description: "Custom notebooks for meetings and events",
-      price: "$6.99",
+      price: 149,
       category: "Office",
       image: "https://images.unsplash.com/photo-1531346680769-1d79b57de5c?w=400&h=400&fit=crop"
     },
@@ -62,7 +62,7 @@ export default function ProductsPage() {
       id: 7,
       name: "Tote Bags",
       description: "Eco-friendly bags with your logo",
-      price: "$9.99",
+      price: 249,
       category: "Bags",
       image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=400&h=400&fit=crop"
     },
@@ -70,7 +70,7 @@ export default function ProductsPage() {
       id: 8,
       name: "Keychains",
       description: "Custom keychains for promotional giveaways",
-      price: "$4.99",
+      price: 99,
       category: "Accessories",
       image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop"
     },
@@ -78,7 +78,7 @@ export default function ProductsPage() {
       id: 9,
       name: "Mouse Pads",
       description: "Custom mouse pads for office branding",
-      price: "$7.99",
+      price: 199,
       category: "Office",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=400&fit=crop"
     },
@@ -86,7 +86,7 @@ export default function ProductsPage() {
       id: 10,
       name: "Aprons",
       description: "Restaurant aprons with your logo",
-      price: "$22.99",
+      price: 599,
       category: "Apparel",
       image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop"
     },
@@ -94,7 +94,7 @@ export default function ProductsPage() {
       id: 11,
       name: "Stickers",
       description: "Custom stickers for packaging and marketing",
-      price: "$1.99",
+      price: 49,
       category: "Marketing",
       image: "https://images.unsplash.com/photo-1603314585442-ee3b3c16fbcf?w=400&h=400&fit=crop"
     },
@@ -102,7 +102,7 @@ export default function ProductsPage() {
       id: 12,
       name: "USB Drives",
       description: "Custom USB drives for tech companies",
-      price: "$14.99",
+      price: 349,
       category: "Electronics",
       image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop"
     }
@@ -186,7 +186,7 @@ export default function ProductsPage() {
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm text-red-700 font-medium">{product.category}</span>
                   <span className="text-lg font-semibold text-red-700">
-                    ${product.price}
+                    {product.price} CZK
                   </span>
                 </div>
                 <CardTitle className="text-lg">{product.name}</CardTitle>

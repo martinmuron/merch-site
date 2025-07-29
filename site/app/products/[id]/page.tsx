@@ -1,9 +1,13 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Star, ArrowLeft, ShoppingBag, Heart, Share2, ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { toast } from "sonner"
 
 interface ProductDetailPageProps {
   params: Promise<{
@@ -11,31 +15,49 @@ interface ProductDetailPageProps {
   }>
 }
 
-export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const { id } = await params
-  // Mock product data - in a real app this would come from a database
-  const product = {
-    id: id,
-    name: `Premium Product ${id}`,
-    description: "This exceptional product showcases our commitment to quality and innovative design. Crafted with premium materials and attention to detail, it represents the perfect blend of functionality and aesthetic appeal. Whether you're looking for style, performance, or both, this product delivers on all fronts.",
-    price: 299,
-    rating: 4.8,
-    reviews: 127,
-    category: "Electronics",
-    features: [
-      "Premium build quality",
-      "Advanced technology",
-      "Elegant design",
-      "Long-lasting performance",
-      "Easy to use"
-    ],
-    specifications: {
-      "Dimensions": "10.5\" x 7.2\" x 0.8\"",
-      "Weight": "1.2 lbs",
-      "Material": "Aluminum & Glass",
-      "Warranty": "2 years",
-      "Color": "Space Gray"
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const [product, setProduct] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const loadProduct = async () => {
+      const { id } = await params
+      // Mock product data - in a real app this would come from a database
+      const productData = {
+        id: id,
+        name: `Premium Product ${id}`,
+        description: "This exceptional product showcases our commitment to quality and innovative design. Crafted with premium materials and attention to detail, it represents the perfect blend of functionality and aesthetic appeal. Whether you're looking for style, performance, or both, this product delivers on all fronts.",
+        price: 299,
+        rating: 4.8,
+        reviews: 127,
+        category: "Electronics",
+        features: [
+          "Premium build quality",
+          "Advanced technology",
+          "Elegant design",
+          "Long-lasting performance",
+          "Easy to use"
+        ],
+        specifications: {
+          "Dimensions": "10.5\" x 7.2\" x 0.8\"",
+          "Weight": "1.2 lbs",
+          "Material": "Aluminum & Glass",
+          "Warranty": "2 years",
+          "Color": "Space Gray"
+        }
+      }
+      setProduct(productData)
+      setLoading(false)
     }
+    loadProduct()
+  }, [params])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-red-700 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    )
   }
 
   const placeholderImages = [
@@ -99,7 +121,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               </div>
               
               <div className="flex items-baseline space-x-2 mb-6">
-                <p className="text-2xl font-bold text-red-700">${product.price}</p>
+                <p className="text-2xl font-bold text-red-700">{product.price} CZK</p>
                 <span className="text-sm text-gray-500">per unit</span>
               </div>
               
@@ -129,7 +151,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Key Features</h3>
               <ul className="space-y-2">
-                {product.features.map((feature, index) => (
+                {product.features.map((feature: string, index: number) => (
                   <li key={index} className="flex items-center text-gray-600">
                     <div className="w-2 h-2 bg-red-700 rounded-full mr-3"></div>
                     {feature}
@@ -141,7 +163,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Specifications</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Object.entries(product.specifications).map(([key, value]) => (
+                {Object.entries(product.specifications).map(([key, value]: [string, any]) => (
                   <div key={key} className="flex justify-between py-2 border-b border-gray-200">
                     <span className="text-gray-600">{key}</span>
                     <span className="font-medium">{value}</span>
@@ -157,11 +179,43 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
                   Inquire About This Product
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  // Save to localStorage for demo purposes
+                  const savedProducts = JSON.parse(localStorage.getItem('savedProducts') || '[]')
+                  if (!savedProducts.find((p: any) => p.id === product.id)) {
+                    savedProducts.push({ id: product.id, name: product.name, price: product.price })
+                    localStorage.setItem('savedProducts', JSON.stringify(savedProducts))
+                    toast.success("Product saved for later!")
+                  } else {
+                    toast.info("Product already saved!")
+                  }
+                }}
+              >
                 <Heart className="w-5 h-5 mr-2" />
                 Save for Later
               </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: product.name,
+                      text: `Check out this product: ${product.name}`,
+                      url: window.location.href,
+                    })
+                  } else {
+                    // Fallback: copy to clipboard
+                    navigator.clipboard.writeText(window.location.href)
+                    toast.success("Link copied to clipboard!")
+                  }
+                }}
+              >
                 <Share2 className="w-5 h-5 mr-2" />
                 Share
               </Button>
@@ -198,7 +252,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
                       ))}
                     </div>
                     <span className="text-lg font-semibold text-red-700">
-                      ${(i + 1) * 99}
+                      {(i + 1) * 99} CZK
                     </span>
                   </div>
                   <Link href={`/products/${i + 10}`}>

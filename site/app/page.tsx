@@ -92,21 +92,21 @@ export default function HomePage() {
               {
                 name: "Custom T-Shirts",
                 description: "Premium cotton shirts with your logo",
-                price: "$12.99",
+                price: "299 CZK",
                 image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
                 category: "Apparel"
               },
               {
                 name: "Branded Mugs",
                 description: "Ceramic mugs perfect for coffee shops",
-                price: "$8.99",
+                price: "199 CZK",
                 image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop",
                 category: "Drinkware"
               },
               {
                 name: "Logo Pens",
                 description: "Professional pens with custom branding",
-                price: "$2.99",
+                price: "49 CZK",
                 image: "https://images.unsplash.com/photo-1583485088034-697b5bc36b92?w=400&h=400&fit=crop",
                 category: "Office"
               }

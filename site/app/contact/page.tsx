@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
-import { Mail, Phone, MapPin, Clock, Building2 } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Building2, Award, Package, Palette } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -93,8 +93,8 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-8 h-8 text-red-700" />
                 </div>
                 <CardTitle className="text-red-900">Quality Materials</CardTitle>
               </CardHeader>
@@ -105,8 +105,8 @@ export default function ContactPage() {
             
             <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-red-700" />
                 </div>
                 <CardTitle className="text-red-900">Fast Turnaround</CardTitle>
               </CardHeader>
@@ -117,8 +117,8 @@ export default function ContactPage() {
             
             <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Package className="w-8 h-8 text-red-700" />
                 </div>
                 <CardTitle className="text-red-900">Bulk Pricing</CardTitle>
               </CardHeader>
@@ -129,8 +129,8 @@ export default function ContactPage() {
             
             <Card className="border-0 shadow-lg bg-red-50 hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
-                <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Palette className="w-8 h-8 text-red-700" />
                 </div>
                 <CardTitle className="text-red-900">Custom Design</CardTitle>
               </CardHeader>
