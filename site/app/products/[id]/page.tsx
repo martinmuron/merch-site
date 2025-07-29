@@ -16,7 +16,17 @@ interface ProductDetailPageProps {
 }
 
 export default function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const [product, setProduct] = useState<any>(null)
+  const [product, setProduct] = useState<{
+    id: string
+    name: string
+    description: string
+    price: number
+    rating: number
+    reviews: number
+    category: string
+    features: string[]
+    specifications: Record<string, string>
+  } | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -52,7 +62,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     loadProduct()
   }, [params])
 
-  if (loading) {
+  if (loading || !product) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-red-700 border-t-transparent rounded-full animate-spin"></div>
@@ -163,7 +173,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Specifications</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Object.entries(product.specifications).map(([key, value]: [string, any]) => (
+                {Object.entries(product.specifications).map(([key, value]: [string, string]) => (
                   <div key={key} className="flex justify-between py-2 border-b border-gray-200">
                     <span className="text-gray-600">{key}</span>
                     <span className="font-medium">{value}</span>
@@ -186,7 +196,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 onClick={() => {
                   // Save to localStorage for demo purposes
                   const savedProducts = JSON.parse(localStorage.getItem('savedProducts') || '[]')
-                  if (!savedProducts.find((p: any) => p.id === product.id)) {
+                                     if (!savedProducts.find((p: { id: string; name: string; price: number }) => p.id === product.id)) {
                     savedProducts.push({ id: product.id, name: product.name, price: product.price })
                     localStorage.setItem('savedProducts', JSON.stringify(savedProducts))
                     toast.success("Product saved for later!")

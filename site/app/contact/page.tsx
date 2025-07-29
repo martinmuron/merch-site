@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
-import { Mail, Phone, MapPin, Clock, Building2, Award, Package, Palette } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Award, Package, Palette } from "lucide-react"
 
 export default function ContactPage() {
   return (
