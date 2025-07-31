@@ -114,63 +114,62 @@ export default function ProductsPage() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Business Merchandise Catalog
+        <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
+            Business Products Catalog
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-            Professional branded products for restaurants, offices, and promotional campaigns. 
-            Bulk pricing available for large orders.
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4 leading-relaxed">
+            Professional branded merchandise for restaurants, offices, and businesses.
           </p>
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6 mb-6 sm:mb-8">
-          <div className="flex flex-col lg:flex-row gap-4">
-            <div className="flex-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <Input
-                  placeholder="Search products..."
-                  className="pl-10"
-                />
-              </div>
+        <div className="mb-6 sm:mb-8 lg:mb-12">
+          <div className="flex flex-col gap-3 sm:gap-4 mb-6">
+            <div className="relative w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+              <Input 
+                placeholder="Search products..." 
+                className="pl-9 sm:pl-10 h-10 sm:h-12 text-sm sm:text-base"
+              />
             </div>
-            <Select>
-              <SelectTrigger className="w-full lg:w-48">
-                <SelectValue placeholder="All Categories" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                <SelectItem value="apparel">Apparel</SelectItem>
-                <SelectItem value="drinkware">Drinkware</SelectItem>
-                <SelectItem value="office">Office</SelectItem>
-                <SelectItem value="bags">Bags</SelectItem>
-                <SelectItem value="accessories">Accessories</SelectItem>
-                <SelectItem value="marketing">Marketing</SelectItem>
-                <SelectItem value="electronics">Electronics</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select>
-              <SelectTrigger className="w-full lg:w-48">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="newest">Newest First</SelectItem>
-                <SelectItem value="price-low">Price: Low to High</SelectItem>
-                <SelectItem value="price-high">Price: High to Low</SelectItem>
-                <SelectItem value="rating">Highest Rated</SelectItem>
-                <SelectItem value="popular">Most Popular</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button size="sm" className="bg-red-700 hover:bg-red-800">
-              Clear Filters
-            </Button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              <Select>
+                <SelectTrigger className="h-10 sm:h-12 text-sm sm:text-base">
+                  <SelectValue placeholder="All Categories" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  <SelectItem value="apparel">Apparel</SelectItem>
+                  <SelectItem value="drinkware">Drinkware</SelectItem>
+                  <SelectItem value="office">Office</SelectItem>
+                  <SelectItem value="bags">Bags</SelectItem>
+                  <SelectItem value="accessories">Accessories</SelectItem>
+                  <SelectItem value="marketing">Marketing</SelectItem>
+                  <SelectItem value="electronics">Electronics</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select>
+                <SelectTrigger className="h-10 sm:h-12 text-sm sm:text-base">
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="newest">Newest First</SelectItem>
+                  <SelectItem value="price-low">Price: Low to High</SelectItem>
+                  <SelectItem value="price-high">Price: High to Low</SelectItem>
+                  <SelectItem value="rating">Highest Rated</SelectItem>
+                  <SelectItem value="popular">Most Popular</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button size="sm" className="h-10 sm:h-12 text-sm sm:text-base bg-red-700 hover:bg-red-800 sm:col-span-2 lg:col-span-2">
+                Clear Filters
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           {businessProducts.map((product) => (
             <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white overflow-hidden transform hover:-translate-y-1 flex flex-col h-full">
               <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
@@ -182,23 +181,23 @@ export default function ProductsPage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <CardHeader className="pb-3 flex-grow">
+              <CardHeader className="pb-3 flex-grow px-3 sm:px-4 lg:px-6">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-red-700 font-medium">{product.category}</span>
-                  <span className="text-lg font-semibold text-red-700">
+                  <span className="text-xs sm:text-sm text-red-700 font-medium">{product.category}</span>
+                  <span className="text-sm sm:text-base lg:text-lg font-semibold text-red-700">
                     {product.price} CZK
                   </span>
                 </div>
-                <CardTitle className="text-lg">{product.name}</CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardTitle className="text-sm sm:text-base lg:text-lg leading-tight">{product.name}</CardTitle>
+                <CardDescription className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
                   {product.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-0 mt-auto">
+              <CardContent className="pt-0 mt-auto px-3 sm:px-4 lg:px-6">
                 <Link href={`/products/${product.id}`}>
-                  <Button className="w-full bg-red-700 hover:bg-red-800 transform hover:scale-105 transition-all duration-200">
+                  <Button className="w-full text-xs sm:text-sm lg:text-base bg-red-700 hover:bg-red-800 transform hover:scale-105 transition-all duration-200">
                     View Details
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
                 </Link>
               </CardContent>
@@ -207,21 +206,21 @@ export default function ProductsPage() {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center mt-8 sm:mt-12">
-          <div className="flex items-center space-x-2">
-            <Button variant="outline" size="sm" className="hidden sm:block">
+        <div className="flex justify-center mt-6 sm:mt-8 lg:mt-12">
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <Button variant="outline" size="sm" className="hidden sm:block text-xs sm:text-sm">
               Previous
             </Button>
-            <Button size="sm" className="bg-red-700 hover:bg-red-800">
+            <Button size="sm" className="bg-red-700 hover:bg-red-800 text-xs sm:text-sm px-2 sm:px-3">
               1
             </Button>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
               2
             </Button>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
               3
             </Button>
-            <Button variant="outline" size="sm" className="hidden sm:block">
+            <Button variant="outline" size="sm" className="hidden sm:block text-xs sm:text-sm">
               Next
             </Button>
           </div>

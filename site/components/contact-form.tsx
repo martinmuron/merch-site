@@ -109,35 +109,35 @@ export function ContactForm() {
             Get a personalized quote for your branded merchandise. We&apos;ll respond within 2 hours.
           </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-4 sm:p-6 lg:p-8">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-2">
-              <Label htmlFor="firstName">First Name *</Label>
+              <Label htmlFor="firstName" className="text-sm sm:text-base">First Name *</Label>
               <Input 
                 id="firstName" 
                 placeholder="John"
                 {...register("firstName")}
-                className={errors.firstName ? "border-red-500" : ""}
+                className={`h-10 sm:h-12 text-sm sm:text-base ${errors.firstName ? "border-red-500" : ""}`}
               />
               {errors.firstName && (
-                <p className="text-sm text-red-600 flex items-center">
-                  <AlertCircle className="w-4 h-4 mr-1" />
+                <p className="text-xs sm:text-sm text-red-600 flex items-center">
+                  <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                   {errors.firstName.message}
                 </p>
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="lastName">Last Name *</Label>
+              <Label htmlFor="lastName" className="text-sm sm:text-base">Last Name *</Label>
               <Input 
                 id="lastName" 
                 placeholder="Doe"
                 {...register("lastName")}
-                className={errors.lastName ? "border-red-500" : ""}
+                className={`h-10 sm:h-12 text-sm sm:text-base ${errors.lastName ? "border-red-500" : ""}`}
               />
               {errors.lastName && (
-                <p className="text-sm text-red-600 flex items-center">
-                  <AlertCircle className="w-4 h-4 mr-1" />
+                <p className="text-xs sm:text-sm text-red-600 flex items-center">
+                  <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                   {errors.lastName.message}
                 </p>
               )}
