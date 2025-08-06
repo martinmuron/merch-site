@@ -1,8 +1,8 @@
-# MerchSite - Business Merchandise Catalog
+# CURLO - Business Merchandise Catalog
 
 A professional, modern merchandise catalog website built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, designed specifically for B2B customers. Perfect for restaurants, offices, and businesses looking for custom branded products. This is a pure catalog website with no checkout functionality - designed to showcase products and facilitate quote requests.
 
-![MerchSite Preview](https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=400&fit=crop)
+![CURLO Preview](https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=400&fit=crop)
 
 ## ✨ Features
 

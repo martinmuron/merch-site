@@ -9,14 +9,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "MerchSite - Premium Product Catalog",
-    template: "%s | MerchSite"
+    default: "CURLO - Premium Product Catalog",
+    template: "%s | CURLO"
   },
   description: "A beautiful, modern product catalog website featuring premium products with Apple-style design. Browse our collection and get in touch for inquiries.",
   keywords: ["product catalog", "premium products", "e-commerce", "merchandise", "catalog website"],
-  authors: [{ name: "MerchSite Team" }],
-  creator: "MerchSite",
-  publisher: "MerchSite",
+  authors: [{ name: "CURLO Team" }],
+  creator: "CURLO",
+  publisher: "CURLO",
   formatDetection: {
     email: false,
     address: false,
@@ -28,22 +28,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    title: 'MerchSite - Premium Product Catalog',
+    title: 'CURLO - Premium Product Catalog',
     description: 'A beautiful, modern product catalog website featuring premium products with Apple-style design.',
-    siteName: 'MerchSite',
+    siteName: 'CURLO',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=630&fit=crop',
         width: 1200,
         height: 630,
-        alt: 'MerchSite - Premium Product Catalog',
+        alt: 'CURLO - Premium Product Catalog',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MerchSite - Premium Product Catalog',
-    description: 'A beautiful, modern product catalog website featuring premium products with Apple-style design.',
+    title: 'CURLO - Premium Product Catalog',
+    description: 'A beautiful, modern product catalog website featuring premium products with Apple-style design',
     images: ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=630&fit=crop'],
   },
   robots: {

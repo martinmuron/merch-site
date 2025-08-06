@@ -183,7 +183,7 @@ export default function HomePage() {
               <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
                 <ShoppingBag className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-semibold">MerchSite</span>
+              <span className="text-xl font-semibold">CURLO</span>
             </div>
             <p className="text-gray-400 mb-6">
               Professional branded merchandise for businesses.

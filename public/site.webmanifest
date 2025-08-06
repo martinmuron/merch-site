@@ -1,6 +1,6 @@
 {
-  "name": "MerchSite - Premium Product Catalog",
-  "short_name": "MerchSite",
+  "name": "CURLO - Premium Product Catalog",
+  "short_name": "CURLO",
   "description": "A beautiful, modern product catalog website featuring premium products with Apple-style design.",
   "start_url": "/",
   "display": "standalone",
