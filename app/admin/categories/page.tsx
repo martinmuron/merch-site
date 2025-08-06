@@ -68,7 +68,7 @@ export default function AdminCategoriesPage() {
       } else {
         toast.error("Failed to delete category")
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to delete category")
     }
   }

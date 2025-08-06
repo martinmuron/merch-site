@@ -8,7 +8,6 @@ import {
   Package, 
   Users, 
   MessageSquare, 
-  Plus,
   ArrowRight
 } from "lucide-react"
 import { Navbar } from "@/components/navbar"

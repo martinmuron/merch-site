@@ -16,7 +16,6 @@ import {
   X,
   Save,
   Image as ImageIcon,
-  Plus
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"

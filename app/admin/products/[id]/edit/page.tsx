@@ -59,6 +59,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
     }
     
     loadData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session, status, router])
 
   const loadData = async () => {
@@ -302,6 +303,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
                 <CardContent className="space-y-4">
                   {formData.mainImage && (
                     <div className="relative">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={formData.mainImage}
                         alt="Product preview"

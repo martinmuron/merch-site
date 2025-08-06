@@ -7,7 +7,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Plus, Edit, Trash2, Eye } from "lucide-react"
+import { Plus, Edit, Trash2 } from "lucide-react"
 import { toast } from "sonner"
 import { Navbar } from "@/components/navbar"
 
@@ -141,7 +141,7 @@ export default function AdminProductsPage() {
       } else {
         toast.error("Failed to delete product")
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to delete product")
     }
   }
@@ -171,7 +171,7 @@ export default function AdminProductsPage() {
       } else {
         toast.error("Failed to update product status")
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to update product status")
     }
   }

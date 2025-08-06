@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, AlertCircle } from "lucide-react"
+import { CheckCircle } from "lucide-react"
 import { toast } from "sonner"
 
 export default function AdminSetupPage() {
@@ -28,7 +28,7 @@ export default function AdminSetupPage() {
         const data = await response.json()
         toast.error(data.message || 'Failed to setup admin')
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to setup admin user')
     } finally {
       setIsSettingUp(false)
