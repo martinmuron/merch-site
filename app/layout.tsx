@@ -22,14 +22,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://merchandise-site-production.up.railway.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://merchandise-site-production.up.railway.app',
     title: 'MerchSite - Premium Product Catalog',
     description: 'A beautiful, modern product catalog website featuring premium products with Apple-style design.',
     siteName: 'MerchSite',
