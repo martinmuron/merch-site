@@ -1,3 +1,5 @@
+'use client'
+
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -8,8 +10,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { useState } from "react"
-
-'use client'
 
 export default function ProductsPage() {
   const [currentPage, setCurrentPage] = useState(1)
