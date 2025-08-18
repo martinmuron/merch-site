@@ -7,8 +7,14 @@ import { Search } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { useState } from "react"
+
+'use client'
 
 export default function ProductsPage() {
+  const [currentPage, setCurrentPage] = useState(1)
+  const productsPerPage = 8
+  
   const businessProducts = [
     {
       id: 1,
@@ -108,6 +114,16 @@ export default function ProductsPage() {
     }
   ];
 
+  const totalPages = Math.ceil(businessProducts.length / productsPerPage)
+  const startIndex = (currentPage - 1) * productsPerPage
+  const endIndex = startIndex + productsPerPage
+  const currentProducts = businessProducts.slice(startIndex, endIndex)
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -170,7 +186,7 @@ export default function ProductsPage() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-          {businessProducts.map((product) => (
+          {currentProducts.map((product) => (
             <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white overflow-hidden transform hover:-translate-y-1 flex flex-col h-full">
               <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                 <Image
@@ -208,19 +224,35 @@ export default function ProductsPage() {
         {/* Pagination */}
         <div className="flex justify-center mt-6 sm:mt-8 lg:mt-12">
           <div className="flex items-center space-x-1 sm:space-x-2">
-            <Button variant="outline" size="sm" className="hidden sm:block text-xs sm:text-sm">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="hidden sm:block text-xs sm:text-sm"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
               Previous
             </Button>
-            <Button size="sm" className="bg-red-700 hover:bg-red-800 text-xs sm:text-sm px-2 sm:px-3">
-              1
-            </Button>
-            <Button variant="outline" size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
-              2
-            </Button>
-            <Button variant="outline" size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
-              3
-            </Button>
-            <Button variant="outline" size="sm" className="hidden sm:block text-xs sm:text-sm">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <Button
+                key={page}
+                size="sm"
+                variant={currentPage === page ? "default" : "outline"}
+                className={`text-xs sm:text-sm px-2 sm:px-3 ${
+                  currentPage === page ? "bg-red-700 hover:bg-red-800" : ""
+                }`}
+                onClick={() => handlePageChange(page)}
+              >
+                {page}
+              </Button>
+            ))}
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="hidden sm:block text-xs sm:text-sm"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
               Next
             </Button>
           </div>
