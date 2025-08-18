@@ -48,10 +48,9 @@ export default function AdminSetupPage() {
           {!isComplete ? (
             <>
               <div className="bg-red-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-red-900 mb-2">Admin Credentials:</h4>
+                <h4 className="font-semibold text-red-900 mb-2">Admin Setup:</h4>
                 <p className="text-sm text-red-700">
-                  Email: admin@merchsite.com<br />
-                  Password: 123456
+                  This will create the admin user with the configured credentials from environment variables.
                 </p>
               </div>
               

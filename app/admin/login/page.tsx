@@ -73,7 +73,7 @@ export default function AdminLoginPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@merchsite.com"
+                  placeholder="info@curlo.cz"
                   required
                   className="mt-1"
                 />

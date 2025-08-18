@@ -35,22 +35,25 @@ async function main() {
 
   // Create admin user
   console.log('👤 Creating admin user...')
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@merchsite.com'
+  const adminPassword = process.env.ADMIN_PASSWORD || '123456'
+  
   const existingAdmin = await prisma.adminUser.findUnique({
-    where: { email: 'admin@merchsite.com' }
+    where: { email: adminEmail }
   })
 
   if (!existingAdmin) {
-    const hashedPassword = await bcrypt.hash('123456', 12)
+    const hashedPassword = await bcrypt.hash(adminPassword, 12)
     
     await prisma.adminUser.create({
       data: {
-        email: 'admin@merchsite.com',
-        name: 'Admin User',
+        email: adminEmail,
+        name: 'CURLO Admin',
         hashedPassword,
         role: 'ADMIN'
       }
     })
-    console.log('✅ Created admin user: admin@merchsite.com')
+    console.log(`✅ Created admin user: ${adminEmail}`)
   } else {
     console.log('⏭️  Admin user already exists')
   }

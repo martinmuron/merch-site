@@ -4,10 +4,20 @@ import bcrypt from "bcryptjs"
 
 export async function POST() {
   try {
+    const adminEmail = process.env.ADMIN_EMAIL
+    const adminPassword = process.env.ADMIN_PASSWORD
+
+    if (!adminEmail || !adminPassword) {
+      return NextResponse.json(
+        { message: 'Admin credentials not configured' },
+        { status: 500 }
+      )
+    }
+
     // Check if admin user already exists
     const existingAdmin = await db.adminUser.findUnique({
       where: {
-        email: 'admin@merchsite.com'
+        email: adminEmail
       }
     })
 
@@ -19,13 +29,13 @@ export async function POST() {
     }
 
     // Hash the password
-    const hashedPassword = await bcrypt.hash('123456', 12)
+    const hashedPassword = await bcrypt.hash(adminPassword, 12)
 
     // Create admin user
     const adminUser = await db.adminUser.create({
       data: {
-        email: 'admin@merchsite.com',
-        name: 'Admin User',
+        email: adminEmail,
+        name: 'CURLO Admin',
         hashedPassword,
         role: 'ADMIN'
       }

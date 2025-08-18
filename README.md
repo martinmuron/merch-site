@@ -80,8 +80,7 @@ A professional, modern merchandise catalog website built with **Next.js 15**, **
    Navigate to [http://localhost:3000](http://localhost:3000)
    
    **Admin Access**: Navigate to [http://localhost:3000/admin](http://localhost:3000/admin)
-   - Email: admin@merchsite.com
-   - Password: 123456
+   - Credentials are configured via environment variables (ADMIN_EMAIL and ADMIN_PASSWORD)
 
 ## 🏗️ Project Structure
 
