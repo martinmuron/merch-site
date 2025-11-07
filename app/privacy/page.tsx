@@ -21,7 +21,7 @@ export default function PrivacyPage() {
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              CURLO ("we," "our," or "us") respects your privacy and is committed to protecting your personal data.
+              CURLO (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is committed to protecting your personal data.
               This privacy policy explains how we collect, use, and safeguard your information when you visit our
               website and use our services, in compliance with the General Data Protection Regulation (GDPR) and
               Czech Republic data protection laws.
@@ -163,7 +163,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-900">Right to Erasure / "Right to be Forgotten" (Art. 17)</h4>
+                <h4 className="font-semibold text-gray-900">Right to Erasure / &quot;Right to be Forgotten&quot; (Art. 17)</h4>
                 <p className="text-gray-700">You can request deletion of your personal data in certain circumstances.</p>
               </div>
 
@@ -232,7 +232,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Children's Privacy</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Children&apos;s Privacy</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Our services are intended for businesses and individuals over the age of 18. We do not knowingly
               collect personal data from children under 16 (or the applicable age of consent in your country).
@@ -274,7 +274,7 @@ export default function PrivacyPage() {
               requirements. We will notify you of any material changes by:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-              <li>Updating the "Last Updated" date at the top of this policy</li>
+              <li>Updating the &quot;Last Updated&quot; date at the top of this policy</li>
               <li>Posting a notice on our website homepage</li>
               <li>Sending an email notification (if we have your email address)</li>
             </ul>

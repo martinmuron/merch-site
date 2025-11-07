@@ -9,4 +9,8 @@ export const db = globalForPrisma.prisma ?? new PrismaClient()
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
 
-export const sql = neon(process.env.DATABASE_URL!) 
+// Only initialize the neon connection if DATABASE_URL is available
+// This prevents build failures when environment variables aren't set
+export const sql = process.env.DATABASE_URL
+  ? neon(process.env.DATABASE_URL)
+  : (null as unknown as ReturnType<typeof neon>) 

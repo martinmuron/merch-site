@@ -21,7 +21,7 @@ export default function CookiePolicyPage() {
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              This Cookie Policy explains how CURLO ("we," "our," or "us") uses cookies and similar tracking
+              This Cookie Policy explains how CURLO (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) uses cookies and similar tracking
               technologies on our website. This policy is part of our commitment to transparency and compliance
               with the General Data Protection Regulation (GDPR) and the ePrivacy Directive.
             </p>
@@ -35,8 +35,8 @@ export default function CookiePolicyPage() {
               improving your browsing experience.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Cookies can be "session cookies" (temporary, deleted when you close your browser) or "persistent
-              cookies" (remain on your device for a set period or until you delete them).
+              Cookies can be &quot;session cookies&quot; (temporary, deleted when you close your browser) or &quot;persistent
+              cookies&quot; (remain on your device for a set period or until you delete them).
             </p>
           </section>
 
@@ -75,7 +75,7 @@ export default function CookiePolicyPage() {
                   <li><strong>CSRF tokens:</strong> Protect against cross-site request forgery attacks</li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed mt-2">
-                  <strong>Legal Basis:</strong> These cookies are necessary for the website's basic functionality
+                  <strong>Legal Basis:</strong> These cookies are necessary for the website&apos;s basic functionality
                   and do not require your consent under GDPR.
                 </p>
               </div>
@@ -92,7 +92,7 @@ export default function CookiePolicyPage() {
                   <strong>Examples:</strong>
                 </p>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
-                  <li><strong>localStorage - savedProducts:</strong> Remember products you've favorited (stored in browser, not cookies)</li>
+                  <li><strong>localStorage - savedProducts:</strong> Remember products you&apos;ve favorited (stored in browser, not cookies)</li>
                   <li><strong>Language preferences:</strong> Remember your language selection</li>
                 </ul>
               </div>
@@ -122,7 +122,7 @@ export default function CookiePolicyPage() {
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    Google's Privacy Policy
+                    Google&apos;s Privacy Policy
                   </a>.
                 </p>
               </div>
@@ -286,7 +286,7 @@ export default function CookiePolicyPage() {
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Do Not Track (DNT)</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Some browsers have a "Do Not Track" (DNT) feature that signals to websites that you do not want
+              Some browsers have a &quot;Do Not Track&quot; (DNT) feature that signals to websites that you do not want
               your online activity tracked. Currently, there is no industry standard for how to respond to DNT
               signals. At this time, our website does not respond to DNT signals, but we only use essential
               cookies necessary for functionality.
@@ -300,7 +300,7 @@ export default function CookiePolicyPage() {
               legal reasons. We will notify you of any significant changes by:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-              <li>Updating the "Last Updated" date at the top of this policy</li>
+              <li>Updating the &quot;Last Updated&quot; date at the top of this policy</li>
               <li>Displaying a notice on our website</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mt-4">
@@ -356,7 +356,7 @@ export default function CookiePolicyPage() {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:underline"
                 >
-                  UK Information Commissioner's Office (ICO) - Cookies
+                  UK Information Commissioner&apos;s Office (ICO) - Cookies
                 </a>
               </li>
             </ul>

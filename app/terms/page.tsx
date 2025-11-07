@@ -21,8 +21,8 @@ export default function TermsPage() {
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Welcome to CURLO. These Terms of Service ("Terms") govern your access to and use of our website,
-              products, and services (collectively, the "Services"). By accessing or using our Services, you
+              Welcome to CURLO. These Terms of Service (&quot;Terms&quot;) govern your access to and use of our website,
+              products, and services (collectively, the &quot;Services&quot;). By accessing or using our Services, you
               agree to be bound by these Terms and our Privacy Policy.
             </p>
 
@@ -121,8 +121,8 @@ export default function TermsPage() {
             <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
               <li>Violate any applicable laws, regulations, or third-party rights</li>
               <li>Submit spam, fraudulent requests, or malicious content</li>
-              <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
-              <li>Interfere with or disrupt the website's functionality or servers</li>
+              <li>Attempt to gain unauthorized access to our systems or other users&apos; accounts</li>
+              <li>Interfere with or disrupt the website&apos;s functionality or servers</li>
               <li>Use automated tools (bots, scrapers) without our written permission</li>
               <li>Copy, reproduce, or distribute our content without authorization</li>
               <li>Engage in any activity that could harm our business reputation</li>
@@ -260,9 +260,9 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Disclaimers and Limitation of Liability</h2>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">9.1 "As Is" Basis</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">9.1 &quot;As Is&quot; Basis</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Our website and Services are provided "as is" and "as available" without warranties of any kind,
+              Our website and Services are provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind,
               either express or implied, including but not limited to:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
@@ -300,7 +300,7 @@ export default function TermsPage() {
             <p className="text-gray-700 leading-relaxed mb-4">
               You agree to indemnify, defend, and hold harmless CURLO, its officers, directors, employees,
               agents, and affiliates from any claims, liabilities, damages, losses, costs, or expenses
-              (including reasonable attorneys' fees) arising from:
+              (including reasonable attorneys&apos; fees) arising from:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
               <li>Your violation of these Terms</li>
@@ -372,7 +372,7 @@ export default function TermsPage() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">13.4 EU Consumer Rights</h3>
             <p className="text-gray-700 leading-relaxed">
-              If you are a consumer in the European Union, you may also use the European Commission's Online
+              If you are a consumer in the European Union, you may also use the European Commission&apos;s Online
               Dispute Resolution (ODR) platform at{" "}
               <a
                 href="https://ec.europa.eu/consumers/odr"
@@ -391,7 +391,7 @@ export default function TermsPage() {
               We reserve the right to modify these Terms at any time. When we make changes, we will:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-              <li>Update the "Last Updated" date at the top of this page</li>
+              <li>Update the &quot;Last Updated&quot; date at the top of this page</li>
               <li>Post a notice on our website homepage</li>
               <li>For material changes, notify you via email (if we have your email address)</li>
             </ul>

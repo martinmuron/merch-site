@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ShoppingBag, ArrowRight, Building2, Users, Award } from "lucide-react"
+import { ArrowRight, Building2, Users, Award } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
