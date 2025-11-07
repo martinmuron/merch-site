@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ShoppingBag, ArrowRight, Building2, Users, Award } from "lucide-react"
@@ -175,28 +176,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                <ShoppingBag className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-semibold">CURLO</span>
-            </div>
-            <p className="text-gray-400 mb-6">
-              Professional branded merchandise for businesses.
-            </p>
-            <div className="flex justify-center space-x-6 text-sm text-gray-400">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <Link href="/products" className="hover:text-white transition-colors">Products</Link>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-              <Link href="/admin" className="hover:text-white transition-colors">Admin</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
